@@ -1,0 +1,1 @@
+export {Testa} from './Asd'
