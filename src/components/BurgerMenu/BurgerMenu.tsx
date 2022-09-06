@@ -1,9 +1,5 @@
-/* eslint-disable react/react-in-jsx-scope */
-/* eslint-disable prettier/prettier */
-
-// eslint-disable-next-line prettier/prettier
 import { useState } from 'react';
-import { Wrapper, ToggleIcoN, Bar } from './BurgerMenu.styled'
+import { Wrapper, ToggleIcoN, Bar } from './BurgerMenu.styled';
 export const BurgerMenu = () => {
     const [menuActive, setmenuActive] = useState(false);
     return (
@@ -11,7 +7,7 @@ export const BurgerMenu = () => {
             <ToggleIcoN
                 className={menuActive ? 'pushed' : ''}
                 onClick={() => {
-                    setmenuActive(!menuActive)
+                    setmenuActive(!menuActive);
                 }}>
 
                 <Bar />
@@ -20,5 +16,5 @@ export const BurgerMenu = () => {
 
             </ToggleIcoN>
         </Wrapper>
-    )
-}
+    );
+};

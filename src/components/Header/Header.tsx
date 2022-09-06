@@ -1,5 +1,3 @@
-/* eslint-disable import/no-unresolved */
-
 import LogoImg from "./img/LogoPnG.png";
 import React from "react";
 

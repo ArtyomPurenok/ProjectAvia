@@ -1,11 +1,10 @@
-/* eslint-disable prettier/prettier */
 import styled from "styled-components";
 export const Wrapper = styled.div`
 /* position: absolute;
 	top: 50%;
 	left: 50%;
 	margin:-3em; */
- `
+ `;
 export const ToggleIcoN = styled.div`
 display: block;
 	position: relative;
@@ -66,7 +65,7 @@ display: block;
 		transform: rotate(-42deg);
 	}
     
- `
+ `;
 export const Bar = styled.div`
 
- `
+ `;
