@@ -1,5 +1,6 @@
 import React from "react";
 
 export const Testa = () => {
-  return <div>123</div>;
-}
+  // eslint-disable-next-line prettier/prettier
+  return <div>123</div>
+};

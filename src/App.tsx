@@ -1,14 +1,11 @@
+/* eslint-disable import/no-unresolved */
 import React from "react";
 import "./App.css";
-import { Testa } from "./test";
-
+import { Header } from "./components/Header/Header";
 function App() {
-  console.error("ok");
-  console.log('ok');
-
   return (
     <div className="App">
-      <Testa />
+      <Header />
     </div>
   );
 }
