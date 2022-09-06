@@ -38,14 +38,18 @@ export const MenuItem = styled.div`
 export const Item = styled.span`
   position: relative;
   z-index: 5;
+  font-size: 2em;
 `
 export const MenuWrapper = styled.div`
 display: flex;
+
 `
 export const WrapperUserTools = styled.div`
 display: flex;
+align-items: center;
 `
 export const Avatar = styled.img`
+
 width: 50px;
 height: 50px;
 border-radius: 50%;
@@ -61,6 +65,7 @@ export const LoginText = styled.p`
   padding: 0 18px;
   transition: all 0.3s;
   color: white;
+  font-size: 2em;
   &:hover {
     font-weight: bolder;
     color: white;
