@@ -1,0 +1,13 @@
+.search-box {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &_ticket-search {
+        width: 800px;
+        height: 150px;
+        border: 1px solid black;
+    }
+}

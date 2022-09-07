@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { Wrapper, ToggleIcoN, Bar } from './BurgerMenu.styled';
+
+
 export const BurgerMenu = () => {
     const [menuActive, setmenuActive] = useState(false);
     return (
