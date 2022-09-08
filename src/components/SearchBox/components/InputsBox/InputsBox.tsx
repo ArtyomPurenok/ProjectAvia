@@ -12,7 +12,7 @@ export const InputsBox = () => {
             <div className="inputs-box_input-div-left">
                 img 
                 <Input className="inputs-box_input-div-left--input" placeholder="Откуда"/>
-                <Button className="inputs-box_inputs--button"/>
+                <Button className="inputs-box_inputs--button" text="img"/>
             </div>
 
 

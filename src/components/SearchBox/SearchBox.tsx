@@ -3,6 +3,7 @@ import './SearchBox.scss';
 
 import { InputsBox } from "./components/InputsBox";
 import { FiltersBox } from "./components/FiltersBox";
+import { Button } from "../Button";
 
 
 export const SearchBox = () => {
@@ -13,6 +14,7 @@ export const SearchBox = () => {
 
             <InputsBox/>
 
+            <Button text="Найти билет" className="search-box_button"/>
         </div>
     </div>;
 };

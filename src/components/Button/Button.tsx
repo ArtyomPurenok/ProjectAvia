@@ -1,7 +1,7 @@
 type ButtonProps = {
     className?: string;
     onClick?: any;
-    text?: string;
+    text?: string | number;
 }
 
 export const Button = ({className, onClick, text}: ButtonProps) => {
