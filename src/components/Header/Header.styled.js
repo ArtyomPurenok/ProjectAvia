@@ -1,13 +1,39 @@
 /* eslint-disable prettier/prettier */
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+import bg1 from './img/BackGroundImage/1.jpg'
+import bg2 from './img/BackGroundImage/2.jpg'
+import bg3 from './img/BackGroundImage/3.jpg'
+import bg4 from './img/BackGroundImage/4.jpg'
+import bg5 from './img/BackGroundImage/5.jpg'
+const rotate = keyframes`
+0%,100%{
+  background-image: url(${bg1});
+  }
+  20%{
+    background-image: url(${bg2});
+  }  
+  40%{  
+    background-image: url(${bg3});
+  }
+  60%{
+    background-image: url(${bg4});
+  }
+  80%{
+    background-image: url(${bg5});
+} 
+`
 export const HeaderContainer = styled.div`
   width: 100%;
   height: 100vh;
-  background-image: url(https://source.unsplash.com/random/?travel) ;
-  background-position: 0 0;
-  background-repeat: no-repeat;
+  /* background-image: url() ; */
+  /* background-position: 0 0; */
+  /* background-repeat: no-repeat; */
   background-size: 100% auto;
-`;
+  
+  /* background-size: cover; */
+  animation: ${rotate} 35s ease-in-out infinite;
+`
+
 export const NavBar = styled.div`
 display: flex;
 justify-content: space-evenly;
@@ -77,4 +103,10 @@ width: 10px;
 height: 10px;
   cursor: pointer;
 
+`
+export const Section = styled.section`
+background-color: aquamarine;
+border: 1px solid #000;
+width: 100%;
+  height: 100vh;
 `
