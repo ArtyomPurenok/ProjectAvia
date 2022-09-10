@@ -1,0 +1,46 @@
+.passenger-type-card {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: yellow;
+    margin: 20px 0px;
+
+
+    &_passenger-name {
+        min-width: 90px;
+        margin: 3px 43px;
+        font-weight: 600;
+        font-size: 17px;
+
+    }
+    &_passenger-addition {
+        margin: 0;
+        font-weight: 400;
+        font-size: 15px;
+    }
+
+
+    &_passenger-number {
+        margin: 3px 12px;
+        font-weight: 600;
+        font-size: 17px;
+    }
+
+    &_button-minus {
+        width: 30px;
+        height: 30px;
+        font-size: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &_button-plus {
+        width: 30px;
+        height: 30px;
+        font-size: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

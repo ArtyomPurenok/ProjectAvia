@@ -1,11 +1,10 @@
 
-/* eslint-disable prettier/prettier */
 import styled, { keyframes } from "styled-components";
-import bg1 from './img/BackGroundImage/1.jpg'
-import bg2 from './img/BackGroundImage/2.jpg'
-import bg3 from './img/BackGroundImage/3.jpg'
-import bg4 from './img/BackGroundImage/4.jpg'
-import bg5 from './img/BackGroundImage/5.jpg'
+import bg1 from './img/BackGroundImage/1.jpg';
+import bg2 from './img/BackGroundImage/2.jpg';
+import bg3 from './img/BackGroundImage/3.jpg';
+import bg4 from './img/BackGroundImage/4.jpg';
+import bg5 from './img/BackGroundImage/5.jpg';
 const rotate = keyframes`
 0%,100%{
   background-image: url(${bg1});
@@ -22,9 +21,8 @@ const rotate = keyframes`
   80%{
     background-image: url(${bg5});
 } 
-`
+`;
 
-import styled from "styled-components";
 
 export const HeaderContainer = styled.div`
   width: 100%;
@@ -36,7 +34,7 @@ export const HeaderContainer = styled.div`
   
   /* background-size: cover; */
   animation: ${rotate} 35s ease-in-out infinite;
-`
+`;
 
 export const NavBar = styled.div`
 display: flex;
@@ -70,15 +68,15 @@ export const Item = styled.span`
   z-index: 5;
 
   font-size: 2em;
-`
+`;
 export const MenuWrapper = styled.div`
 display: flex;
 
-`
+`;
 export const WrapperUserTools = styled.div`
 display: flex;
 align-items: center;
-`
+`;
 
 export const Avatar = styled.img`
 
@@ -108,7 +106,7 @@ export const Icon = styled.img`
 width: 10px;
 height: 10px;
   cursor: pointer;
-`
+`;
 export const Section = styled.section`
 background-color: aquamarine;
 border: 1px solid #000;
