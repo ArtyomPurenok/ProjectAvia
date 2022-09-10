@@ -1,10 +1,10 @@
 import styled from "styled-components";
 export const Wrapper = styled.div`
-/* position: absolute;
-	top: 50%;
-	left: 50%;
-	margin:-3em; */
- `;
+display: flex;
+align-items: center;
+justify-content: center;
+ `
+
 export const ToggleIcoN = styled.div`
 display: block;
 	position: relative;
@@ -16,11 +16,11 @@ display: block;
 	cursor: pointer;
 
     & div {display: block;
-        width: 3.8em;
+        width: 1em;
         height: 0.2em;
-        margin: 0.9em;
-        border-right: 2.8em solid #fff;
-        border-left: 0.6em solid #d6d6d6;
+        margin: 0.5em;
+        border-right: 1.8em solid #fff;
+        border-left: 0.3em solid #d6d6d6;
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
@@ -43,21 +43,21 @@ display: block;
 		transform: rotate(-180deg);
     }
      &.pushed {
-        margin: -3.2em 0 0 0.7em;
+        margin: -1.2em 0 0 0.1em;
     }
     &.pushed div:nth-of-type(1) {
 		opacity: 0;
 	}
     &.pushed div:nth-of-type(2) {
-		margin-left: 1.4em;
-		-webkit-transform: rotate(-137deg) translateY(-1.5em);
-		-moz-transform: rotate(-137deg) translateY(-1.5em);
-		-ms-transform: rotate(-137deg) translateY(-1.5em);
-		-o-transform: rotate(-137deg) translateY(-1.5em);
-		transform: rotate(-137deg) translateY(-1.5em);
+		margin-left: 0.4em;
+		-webkit-transform: rotate(-137deg) translateY(-3.5em);
+		-moz-transform: rotate(-137deg) translateY(-3.5em);
+		-ms-transform: rotate(-137deg) translateY(-3.5em);
+		-o-transform: rotate(-137deg) translateY(-3.5em);
+		transform: rotate(-137deg) translateY(-1em);
 	}
     &.pushed div:nth-of-type(3) {
-		margin-left: 0.5em;
+		margin-left: -0.4em;
 		-webkit-transform: rotate(-42deg);
 		-moz-transform: rotate(-42deg);
 		-ms-transform: rotate(-42deg);
