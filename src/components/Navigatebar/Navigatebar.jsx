@@ -8,7 +8,6 @@ import { Wrapper, MenuItem, Item } from "./Navigatebar.styled";
 const navList = [
   { id: 1, name: "TOURS ", icon: <FiBriefcase />, link: "TOURS" },
   { id: 2, name: "HOUSING ", icon: <BsHouseDoor />, link: "HOUSING" },
-  // eslint-disable-next-line prettier/prettier
   { id: 3, name: "AIR TISCRT ", icon: <MdAirplanemodeActive />, link: "AIR TISCRT"},
   { id: 4, name: "CAR RENTAL ", icon: <AiOutlineCar />, link: "CAR RENTAL" },
 ];

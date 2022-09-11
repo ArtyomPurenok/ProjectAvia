@@ -14,6 +14,8 @@ import {
 } from "./Header.styled";
 import { BurgerMenu } from "../BurgerMenu/BurgerMenu";
 import { Navigatebar } from "../Navigatebar/Navigatebar";
+import { SearchBox } from "../SearchBox";
+
 
 export const Header = () => {
   const menuList = [
@@ -41,7 +43,9 @@ export const Header = () => {
           </WrapperUserTools>
         </NavBar>
         <Navigatebar />
+        <SearchBox/>
       </HeaderContainer>
+      
       <Section id="TOURS">TOURS</Section>
       <Section id="HOUSING">HOUSING</Section>
       <Section id="AIR TISCRT">AIR TISCRT</Section>
