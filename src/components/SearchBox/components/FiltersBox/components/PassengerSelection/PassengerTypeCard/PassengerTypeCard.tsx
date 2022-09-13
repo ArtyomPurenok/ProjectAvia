@@ -1,29 +1,37 @@
 import React, { useEffect, useState } from "react";
 import './PassengerTypeCard.scss';
+import { useDispatch } from "react-redux";
+
+import { adults } from "../../../../../../../redux/reducer/dataSearchAviaTicketReducer";
 
 import { Button } from "../../../../../../Button";
 
+
 type PassengerProps = {
     namePassenger: string
+    typePassenger?: any
     addition?: string
+    numberPassenger: number
+
 }
 
-export const PassengerTypeCard = ({namePassenger, addition}: PassengerProps) => {
+export const PassengerTypeCard = ({namePassenger, addition, numberPassenger, typePassenger}: PassengerProps) => {
+    const dispatch = useDispatch();
     const [number, setNumber] = useState(0);
 
-
     useEffect(() => {
-        console.log(number);
-        
-    });
+        setNumber(numberPassenger);
+    }), [];
+
 
     const numberUp = () => {
-        return setNumber(number + 1);
+        return dispatch(typePassenger("plus"));
+    };
+    const numberDown = () => {
+        return dispatch(typePassenger("minus"));
     };
 
-    const numberDown = () => {
-        return setNumber(number - 1);
-    };
+
 
     return <div className="passenger-type-card">
         <p className="passenger-type-card_passenger-name">
@@ -31,7 +39,7 @@ export const PassengerTypeCard = ({namePassenger, addition}: PassengerProps) => 
         </p>
 
         <Button className="passenger-type-card_button-minus" text={'-'} onClick={numberDown}/>
-        <p className="passenger-type-card_passenger-number">{number}</p>
+        <p className="passenger-type-card_passenger-number">{numberPassenger && number}</p>
         <Button className="passenger-type-card_button-plus" text={'+'} onClick={numberUp}/>
     </div>;
 };
