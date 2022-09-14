@@ -5,7 +5,7 @@ const initialState: any = {
     flightClass: "economy",
     adults: 1,
     children: 0,
-    infants: 0
+    infants: 0,
 };
 
 

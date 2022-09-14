@@ -5,11 +5,13 @@
     margin-top: 140px;
 
     &_ticket-search {
-        width: 950px;
+        width: 980px;
+        padding: 0px 20px;
         border: 0px solid grey;
         border-radius: 3px;
         text-align: center;
-        box-shadow: 0 0 5px rgba(128, 128, 128, 1);
+        box-shadow: 0 0 10px rgb(1, 1, 0.5);
+        background-color: rgba(0, 0, 0, 0.07);
     }
 
     &_button {
@@ -17,7 +19,7 @@
         height: 65px;
         font-size: 20px;
         color: white;
-        margin: 30px 0px 35px 0px;
+        margin: 25px 0px 30px 0px;
         border: 0px solid transparent;
         border-radius: 3px;
         background-color: rgb(255, 0, 55);

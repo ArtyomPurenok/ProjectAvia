@@ -1,8 +1,9 @@
 .passenger-selection {
+    position: absolute;
+    top: 45px;
     width: 300px;
     background-color: red;
-    position: absolute;
-    margin-top: 18px;
+    z-index: 1;
 
     &_buttons-box {
         display: flex;
