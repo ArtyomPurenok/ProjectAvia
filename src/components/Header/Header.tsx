@@ -15,6 +15,7 @@ import {
 import { BurgerMenu } from "../BurgerMenu/BurgerMenu";
 import { Navigatebar } from "../Navigatebar/Navigatebar";
 import { SearchBox } from "../SearchBox";
+import { Link } from "react-router-dom";
 
 
 export const Header = () => {
@@ -38,14 +39,16 @@ export const Header = () => {
           </MenuWrapper>
           <WrapperUserTools>
             <BurgerMenu />
-            <LoginText>Login</LoginText>
+            <LoginText>
+              <Link to='/login'>Login</Link>
+            </LoginText>
             <Avatar src="https://www.nj.com/resizer/zovGSasCaR41h_yUGYHXbVTQW2A=/1280x0/smart/cloudfront-us-east-1.images.arcpublishing.com/advancelocal/SJGKVE5UNVESVCW7BBOHKQCZVE.jpg" />
           </WrapperUserTools>
         </NavBar>
         <Navigatebar />
-        <SearchBox/>
+        <SearchBox />
       </HeaderContainer>
-      
+
       <Section id="TOURS">TOURS</Section>
       <Section id="HOUSING">HOUSING</Section>
       <Section id="AIR TISCRT">AIR TISCRT</Section>
