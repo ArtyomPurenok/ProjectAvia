@@ -16,9 +16,15 @@ import { BurgerMenu } from "../BurgerMenu/BurgerMenu";
 import { Navigatebar } from "../Navigatebar/Navigatebar";
 import { SearchBox } from "../SearchBox";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 
 
 export const Header = () => {
+
+  const { email, id, token } = useSelector((state: any) => state.user);
+  console.log(email, id, token, !!email, 'state');
+
   const menuList = [
     { id: 1, name: "Home", src: "about" },
     { id: 2, name: "Tours", src: "projects" },
