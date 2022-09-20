@@ -1,13 +1,29 @@
 import React from "react";
 import "./App.css";
 import { HomePage } from "./Pages/HomePage";
-function App() { 
+import { BrowserRouter, Route, Routes, } from "react-router-dom";
+import { Login } from "./Pages/Login/Login";
+import { Register } from "./Pages/Register/Register";
+// import { ScrollToTop } from "./components/ScrollToTop/ScrollToTop";
+function App() {
   return (
-    <div className="App">
-      {/* <Header /> */}
-      <HomePage/>
+    <BrowserRouter>
+      <Routes>
+        {/* <ScrollToTop /> */}
+        <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route
+          path="*"
+          element={
+            <main style={{ padding: '1rem' }}>
+              <p>404 Not Found</p>
+            </main>
+          }
+        />
 
-    </div>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
