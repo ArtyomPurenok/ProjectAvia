@@ -18,6 +18,8 @@ import { SearchBox } from "../SearchBox";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
+import { TicketCard } from "../TicketCard";
+
 
 
 export const Header = () => {
@@ -55,7 +57,7 @@ export const Header = () => {
         <SearchBox />
       </HeaderContainer>
 
-      <Section id="TOURS">TOURS</Section>
+      <Section id="TOURS">TOURS<TicketCard/></Section>
       <Section id="HOUSING">HOUSING</Section>
       <Section id="AIR TISCRT">AIR TISCRT</Section>
       <Section id="CAR RENTAL">CAR RENTAL</Section>

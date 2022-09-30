@@ -1,0 +1,27 @@
+.date-and-location {
+    max-width: 120px;
+
+    &_date {
+        margin: 0;
+        font-size: 15px;
+        font-weight: 600;
+    }
+
+    &_time {
+        margin: 0;
+        font-size: 33px;
+        color: rgb(0, 153, 209);
+    }
+
+    &_iata {
+        margin: 0;
+        margin-top: 5px;
+        font-size: 25px;
+        font-weight: 600;
+    }
+
+    &_airport {
+        margin: 0;
+        font-size: 15px;
+    }
+}
