@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { SingUP } from '../../components/SingUp/SingUP';
+import { SingUP } from '../../components/SingInOut/SingUP';
 
 export const Register = () => {
     return (

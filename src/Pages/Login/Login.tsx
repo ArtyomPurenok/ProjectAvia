@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { LoginC } from '../../components/Login/LoginC';
+import { SingIN } from '../../components/SingInOut/SingIN';
 export const Login = () => {
     return (
         <div>Login
-            <LoginC />            <p>or</p>
+            <SingIN />            <p>or</p>
             <Link to='/register'>register</Link>
         </div>
     );
