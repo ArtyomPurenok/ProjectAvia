@@ -16,7 +16,7 @@ background-color: #e9e9e9;;
 	border-radius: 0.7rem;
 	box-shadow: 0 0.9rem 1.7rem rgba(0, 0, 0, 0.25),
 		0 0.7rem 0.7rem rgba(0, 0, 0, 0.22);
-	height: 658px;
+	height: 500px;
 	max-width: 580px;
 	overflow: hidden;
 	position: relative;
@@ -36,12 +36,12 @@ export const OverlayContainer = styled.div`
 	top: 0;
 	width: 50%;
 	
-&.right{transition: all 2s ease-in-out;
+&.right{transition: all 1s ease-in-out;
 	transform: translate(100%,0);
 
 	
 }
-&.left{transition: all 2s ease-in-out;
+&.left{transition: all 1s ease-in-out;
 	transform: translate(0px,0);
 
 
