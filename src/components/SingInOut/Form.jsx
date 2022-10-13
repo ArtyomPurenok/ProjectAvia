@@ -7,13 +7,14 @@ export const Form = ({title,handleClick,isname}) => {
   return (
     <Forma className='container--signUp'>
         <Title>{title}</Title>
-   
-        {name&&<Input
-        type="text"
+
+         <Input
+        type={isname}
         value={name}
-        onChange={(e) => setEmail(e.target.value)}
+        onChange={(e) => setName(e.target.value)}
         placeholder="name"
-    />}
+        
+    />
     <Input
         type="email"
         value={email}
@@ -27,7 +28,8 @@ export const Form = ({title,handleClick,isname}) => {
         placeholder="password"
     />
     <Button
-        onClick={() => handleClick(email, password)}
+        onClick={() =>handleClick(email, password,name) 
+        }
     >
         {title}
     </Button>
