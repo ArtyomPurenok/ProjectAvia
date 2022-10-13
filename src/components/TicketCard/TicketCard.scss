@@ -1,8 +1,9 @@
 .ticket-card {
-    margin: 20px;
+    margin: 0 auto 10px;
     padding: 20px;
-    background-color: rgba(0, 255, 106, 0.381);
+    background-color: rgb(249 249 249 / 70%);
     display: flex;
+    max-width: 65%;
 
     &_flight-information {
         display: flex;
@@ -42,7 +43,7 @@
     }
 
     &_additional-information {
-        margin-left: 80px;
+        margin-left: 20px;
         // display: flex;
         // flex-direction: column;
         // align-items: center;
@@ -109,7 +110,7 @@
     }
 
     &_up-line {
-        margin: 0px 60px;
+        margin: 0px 20px;
         width: 3px;
         border-left: 3px solid gray;
     }
@@ -152,4 +153,10 @@
             background-color: rgb(255, 0, 55);
         }
     }
+}
+.ticket-card_buy-ticket{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
 }

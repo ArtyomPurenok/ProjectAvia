@@ -1,10 +1,7 @@
 .inputs-box {
     width: 100%;
     display: flex;
-    justify-content: space-between;
-
-
-
+    justify-content: center;
     &_calendar {
         width: 170px;
         height: 65px;
@@ -15,11 +12,12 @@
         background-color: rgb(248, 254, 255);
 
     }
-
-
-
+.container_Calendar{
+    margin-left: 20px;
+}
     &_inputs {
         display: flex;
+
 
         &--button {
             position: absolute;

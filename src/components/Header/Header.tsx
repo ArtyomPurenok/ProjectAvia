@@ -1,5 +1,5 @@
 import LogoImg from "./img/LogoPnG.png";
-import React from "react";
+import React, { useState } from "react";
 import {
   HeaderContainer,
   NavBar,
@@ -31,6 +31,11 @@ export const Header = () => {
     { id: 3, name: "Blog", src: "blog" },
     { id: 4, name: "Tickers", src: "contact" },
   ];
+  const [ticketData, setticketData]: any = useState('');
+
+  const renderTicket = (ticket: any) => {
+    setticketData(ticket);
+  };
   return (
     <>
       <HeaderContainer>
@@ -53,7 +58,9 @@ export const Header = () => {
             }          </WrapperUserTools>
         </NavBar>
         <Navigatebar />
-        <SearchBox />
+        <SearchBox renderTicket={renderTicket} />
+        {ticketData && ticketData?.data.map((ticket: any, index: any) => (<TicketCard key={index} currency={ticketData.currency} ticket={ticket} />))}
+
       </HeaderContainer>
 
       <Section id="TOURS">TOURS</Section>
