@@ -88,7 +88,7 @@ background-color: #0367a6;
 	transition: transform 80ms ease-in;
 `;
 
-export const Forma = styled.form`
+export const Forma = styled.div`
 background-color: #e9e9e9;
 	display: flex;
 	align-items: center;
