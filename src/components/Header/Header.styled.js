@@ -26,7 +26,8 @@ const rotate = keyframes`
 
 export const HeaderContainer = styled.div`
   width: 100%;
-  height: 95vh;
+  min-height: 95vh;
+  display: table;
   /* background-image: url() ; */
   /* background-position: 0 0; */
   /* background-repeat: no-repeat; */

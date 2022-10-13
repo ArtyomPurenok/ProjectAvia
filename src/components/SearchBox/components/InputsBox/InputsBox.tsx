@@ -41,16 +41,13 @@ export const InputsBox = ({ onChange }: any) => {
         onSubmit: values => {
         }
     });
-    const bla = () => {
+    const inputDateUp = () => {
         onChange(formik);
-
-        console.log(formik.values, 'rrrrrrrrr');
-
     };
     //////////////////////////////
 
-    return <div className="inputs-box">
-        <form onBlur={bla} onSubmit={formik.handleSubmit}>
+    return <form onBlur={inputDateUp} onSubmit={formik.handleSubmit}>
+        <div className="inputs-box">
             <div className="inputs-box_inputs">
                 <div className="inputs-box_input-div-left">
                     <TbCurrentLocation className="inputs-box_input-div-left--img" />
@@ -76,9 +73,7 @@ export const InputsBox = ({ onChange }: any) => {
                     />
                 </div>
             </div>
-
-
-            <div>
+            <div className="container_Calendar">
                 <Input
                     className="inputs-box_calendar"
                     type='date'
@@ -97,7 +92,7 @@ export const InputsBox = ({ onChange }: any) => {
                 />
 
             </div>
+        </div >
+    </form >;
 
-        </form>
-    </div>;
 };

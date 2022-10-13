@@ -12,10 +12,7 @@ export const SingUP = () => {
     const navigate = useNavigate();
     const handleSingUp = (email: string, password: string, name: string) => {
         const auth = getAuth();
-        console.log(auth, 'auth', email, password, name);
-
         createUserWithEmailAndPassword(auth, email, password).then(({ user }: any) => {
-            user.displayName = name;
             dispatch(setUser({
                 email: user.email,
                 id: user.uid,
@@ -25,9 +22,12 @@ export const SingUP = () => {
             navigate("/");
         }).catch(alert);
     };
+
     return (
         <ContainerForm className='container--signup'>
+
             <Form title='Registr' handleClick={handleSingUp} isname='text' />
-        </ContainerForm>
+
+        </ContainerForm >
     );
 };

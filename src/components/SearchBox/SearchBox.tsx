@@ -5,8 +5,8 @@ import { InputsBox } from "./InputsBox";
 import { FiltersBox } from "./FiltersBox";
 import { Button } from "../Button";
 import { TicketCard } from "../TicketCard";
-export const SearchBox = ({ }) => {
-    const [ticketData, setticketData]: any = useState(null);
+export const SearchBox = ({ renderTicket }: any) => {
+
     const [name, setName]: any = useState({});
     async function getTicket() {
         try {
@@ -16,16 +16,19 @@ export const SearchBox = ({ }) => {
             const response = await fetch(`https://api.travelpayouts.com/aviasales/v3/prices_for_dates?origin=${from.toString()}&destination=${to.toString()}&currency=usd&departure_at=${calendarStart.toString()}&return_at=${calendarFinish.toString()}&sorting=price&direct=true&limit=10&token=be0bcf9a2860e671a347da88a9784277`);
             // https://api.travelpayouts.com/aviasales/v3/prices_for_dates?origin=${from.toString()}&destination=${to.toString()}&currency=usd&departure_at=${calendarStart.toString()}&return_at=2022-11-28&sorting=price&direct=true&limit=100&token=be0bcf9a2860e671a347da88a9784277`
 
-            const responseFormat = (response).json();
-            console.log(await responseFormat);
-            setticketData(await responseFormat);
+            const responseFormat = await (response).json();
+            // console.log(await responseFormat);
+            // setticketData(await responseFormat);
+            if (response.ok && responseFormat.data.length != 0) {
+                renderTicket(responseFormat);
+            }
         } catch (error) {
             return console.log(error);
         }
     };
 
-    const handleNameCgahge = (name: any) => {
-        setName(name);
+    const handleNameCgahge = (dataInput: any) => {
+        setName(dataInput);
 
     };
 
@@ -35,10 +38,7 @@ export const SearchBox = ({ }) => {
             <FiltersBox />
 
             <InputsBox onChange={handleNameCgahge} />
-
             <Button text="Найти билет" className="search-box_button" onClick={getTicket} />
-            {ticketData && ticketData?.data.map((ticket: any, index: any) => (<TicketCard key={index} currency={ticketData.currency} ticket={ticket} />))}
-
         </div>
     </div>;
 };
