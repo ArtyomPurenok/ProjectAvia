@@ -10,6 +10,6 @@ export const newPasswordFetch = async (formData: any) => {
     });
 
     if(response.ok) {     
-        return 'ok'
+        return 'ok';
     }
-}
+};

@@ -4,12 +4,14 @@ type InputProps = {
     onClick?: any
     placeholder?: string
     type?: string
+    value?: any
     defaultValue?: any
     refInput?: any
+    name?: string
 };
 
-export const Input = ({ className, onChange, onClick, placeholder, type, defaultValue, refInput }: InputProps) => {
-    return <input ref={refInput} className={className} onChange={onChange} onClick={onClick} placeholder={placeholder} defaultValue={defaultValue} type={type}>
+export const Input = ({ className, onChange, onClick, placeholder, type, value, defaultValue, refInput, name }: InputProps) => {
+    return <input ref={refInput} className={className} onChange={onChange} onClick={onClick} placeholder={placeholder} value={value} defaultValue={defaultValue} type={type} name={name}>
 
     </input>;
 };
