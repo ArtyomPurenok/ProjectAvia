@@ -10,26 +10,25 @@ import { ContainerForm } from './SingInUp.style';
 export const SingUP = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const handleSingUp = (email: string, password: string) => {
+    const handleSingUp = (email: string, password: string, name: string) => {
         const auth = getAuth();
-        console.log(auth, 'auth');
-
         createUserWithEmailAndPassword(auth, email, password).then(({ user }: any) => {
-            console.table(user);
+
             dispatch(setUser({
                 email: user.email,
                 id: user.uid,
+                name: user.displayName,
                 token: user.accessToken
             }));
-
             navigate("/");
-
-
         }).catch(alert);
     };
+
     return (
         <ContainerForm className='container--signup'>
-            <Form title='Sing Up' handleClick={handleSingUp} isname='true' />
-        </ContainerForm>
+
+            <Form title='Registr' handleClick={handleSingUp} isname='text' />
+
+        </ContainerForm >
     );
 };

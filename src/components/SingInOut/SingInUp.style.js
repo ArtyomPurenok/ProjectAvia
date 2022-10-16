@@ -16,15 +16,18 @@ background-color: #e9e9e9;;
 	border-radius: 0.7rem;
 	box-shadow: 0 0.9rem 1.7rem rgba(0, 0, 0, 0.25),
 		0 0.7rem 0.7rem rgba(0, 0, 0, 0.22);
-	height: 658px;
+	height: 500px;
 	max-width: 580px;
 	overflow: hidden;
 	position: relative;
 	width: 100%; 
 	display: flex ;
+	justify-content: center;
     `;
 
 export const ContainerForm = styled.div`
+display: flex ;
+
 	height: 100%;
 	top: 0;
 `;
@@ -34,14 +37,15 @@ export const OverlayContainer = styled.div`
 	overflow: hidden;
 	position: absolute;
 	top: 0;
+	left: 0;
 	width: 50%;
 	
-&.right{transition: all 2s ease-in-out;
+&.right{transition: all 1s ease-in-out;
 	transform: translate(100%,0);
 
 	
 }
-&.left{transition: all 2s ease-in-out;
+&.left{transition: all 1s ease-in-out;
 	transform: translate(0px,0);
 
 
@@ -74,21 +78,22 @@ align-items: center;
 	width: 50%;
 `;
 export const Button = styled.button`
-background-color: #0367a6;
-	background-image: linear-gradient(90deg, #0367a6 0%, #008997 74%);
-	border-radius: 20px;
-	border: 1px solid #0367a6;
-	color: #e9e9e9;
+width: 120px;
+        height: 35px;
+        font-size: 20px;
+        color: white;
+        margin: 25px 0px 30px 0px;
+        border: 0px solid transparent;
+        border-radius: 3px;
+        background-color: rgb(255, 0, 55);
+        box-shadow: 0 0 9px rgba(0,0,0,1);
 	cursor: pointer;
-	font-size: 0.8rem;
-	font-weight: bold;
-	letter-spacing: 0.1rem;
-	padding: 0.9rem 4rem;
+	
 	text-transform: uppercase;
 	transition: transform 80ms ease-in;
 `;
 
-export const Forma = styled.form`
+export const Forma = styled.div`
 background-color: #e9e9e9;
 	display: flex;
 	align-items: center;
@@ -116,8 +121,16 @@ background-color: #fff;
 	margin: 0.5rem 0;
 	width: 100%;
 `;
+export const ContainerButtonAuth = styled.div`
+	display: flex;
+	width : 30% ;
+	margin-top:20px ;
+	justify-content:space-between ;
+	`;
+
 export const ButtonR = styled.button`
  width:300px;
  height:300px;
- background-color:red`
-	;
+ background-color:red`;
+
+

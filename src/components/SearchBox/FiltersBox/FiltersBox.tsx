@@ -22,18 +22,14 @@ export const FiltersBox = () => {
     const [active, setActive] = useState('');
 
     const OpenSelection = () => {
-        if(active === 'open') {
+        if (active === 'open') {
             return setActive('');
-        }else {return setActive('open');};
+        } else { return setActive('open'); };
     };
 
-
-
-
-
-    const [imgDirection, setImgDirection] = useState(<RiArrowLeftRightFill/>);
+    const [imgDirection, setImgDirection] = useState(<RiArrowLeftRightFill />);
     const choosingDirection = (el: any) => {
-        return setImgDirection(hookImgDirection(el.target.value));    
+        return setImgDirection(hookImgDirection(el.target.value));
     };
 
 
@@ -55,10 +51,10 @@ export const FiltersBox = () => {
 
 
         <div className="filters-box_number-passengers">
-            <div className="filters-box_number-passengers--user"><HiOutlineUser/></div>
-            <Button className="filters-box_number-passengers--button" text={`${countingPassengers(dataPassenger)}`} onClick={OpenSelection}/>
-            <div className="filters-box_number-passengers--arrow"><MdOutlineArrowDropDown/></div>
-            {active && <PassengerSelection/>}
+            <div className="filters-box_number-passengers--user"><HiOutlineUser /></div>
+            <Button className="filters-box_number-passengers--button" text={`${countingPassengers(dataPassenger)}`} onClick={OpenSelection} />
+            <div className="filters-box_number-passengers--arrow"><MdOutlineArrowDropDown /></div>
+            {active && <PassengerSelection />}
         </div>
 
 
