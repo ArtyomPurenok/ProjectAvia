@@ -34,6 +34,9 @@ export const Form = ({title,handleClick,isname}) => {
         const auth = getAuth();
         signInWithPopup(auth, gitprovider)
             .then((result) => {
+                console.log('====================================');
+                console.log(result);
+                console.log('====================================');
                 dispatch(setUser({
                     email: result.user.email,
                     id: result.user.uid,

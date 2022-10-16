@@ -9,28 +9,6 @@ import { RiArrowLeftRightFill } from "react-icons/ri";
 import { useFormik } from 'formik';
 
 export const InputsBox = ({ onChange }: any) => {
-    const [inputFrom, setinputFrom] = useState({});
-    const [inputTo, setInputTo] = useState('');
-    const [calendarStart, setcalendarStart] = useState('');
-    const [calendarFinish, setcalendarFinish] = useState('');
-
-    // const inputChangeFrom = (event: any) => {
-    //     setinputFrom(event.target.value);
-    //     onChange(event.target.value);
-    // };
-    // const inputChangeTo = (event: any) => {
-    //     setinputFrom({ 'inputChangeTo': event.target.value });
-    //     onChange(event.target.value);
-    // };
-    // const inputChangeCalendarStart = (event: any) => {
-    //     setcalendarStart(event.target.value);
-    //     onChange(event.target.value);
-    // };
-    // const inputChangeCalendarFinisg = (event: any) => {
-    //     setcalendarFinish(event.target.value);
-    //     onChange(event.target.value);
-    // };
-    //////////////////////////////
     const formik = useFormik({
         initialValues: {
             from: '',
@@ -44,8 +22,6 @@ export const InputsBox = ({ onChange }: any) => {
     const inputDateUp = () => {
         onChange(formik);
     };
-    //////////////////////////////
-
     return <form onBlur={inputDateUp} onSubmit={formik.handleSubmit}>
         <div className="inputs-box">
             <div className="inputs-box_inputs">
@@ -60,8 +36,6 @@ export const InputsBox = ({ onChange }: any) => {
                     />
                     <Button className="inputs-box_inputs--button" Icon={RiArrowLeftRightFill} />
                 </div>
-
-
                 <div className="inputs-box_input-div-right">
                     <IoLocationOutline className="inputs-box_input-div-right--img" />
                     <Input

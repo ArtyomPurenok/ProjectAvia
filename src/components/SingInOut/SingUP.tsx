@@ -13,6 +13,7 @@ export const SingUP = () => {
     const handleSingUp = (email: string, password: string, name: string) => {
         const auth = getAuth();
         createUserWithEmailAndPassword(auth, email, password).then(({ user }: any) => {
+
             dispatch(setUser({
                 email: user.email,
                 id: user.uid,
