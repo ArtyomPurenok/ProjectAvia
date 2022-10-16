@@ -25,7 +25,7 @@ import { TicketCard } from "../TicketCard";
 export const Header = () => {
 
   const { email, id, token } = useSelector((state: any) => state.user);
-  console.log(email, id, token, !!email, 'state');
+  // console.log(email, id, token, !!email, 'state');
 
   const menuList = [
     { id: 1, name: "Home", src: "about" },

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import './FiltersBox.scss';
 import { useSelector } from "react-redux";
 
-import { Button } from "../../../Button";
+import { Button } from "../../Button";
 import { PassengerSelection } from "./components/PassengerSelection";
 
 import { RiArrowLeftRightFill } from "react-icons/ri";

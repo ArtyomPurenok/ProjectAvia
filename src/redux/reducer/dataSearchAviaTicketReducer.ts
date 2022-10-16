@@ -6,6 +6,10 @@ const initialState: any = {
     adults: 1,
     children: 0,
     infants: 0,
+    inputFromIATA: null,
+    inputFromLocation: null,
+    inputToIATA: null,
+    inputToLocation: null,
 };
 
 
@@ -16,9 +20,11 @@ const dataTicketAvia: any = createSlice({
         direction: (state: any, action: PayloadAction<string>) => {
             state.direction = action.payload;
         },
+
         flightClass: (state: any, action: PayloadAction<string>) => {
             state.flightClass = action.payload;
         },
+
         adults: (state: any, action: PayloadAction<string>) => {
             if (action.payload === "plus") {
                 state.adults++;
@@ -30,6 +36,7 @@ const dataTicketAvia: any = createSlice({
                 state.adults = 0;
             }
         },
+
         children: (state: any, action: PayloadAction<string>) => {
             if (action.payload === "plus") {
                 state.children++;
@@ -41,6 +48,7 @@ const dataTicketAvia: any = createSlice({
                 state.children = 0;
             }
         },
+
         infants: (state: any, action: PayloadAction<string>) => {
             if (action.payload === "plus") {
                 state.infants++;
@@ -51,11 +59,26 @@ const dataTicketAvia: any = createSlice({
             if (state.infants < 0) {
                 state.infants = 0;
             }
-        }
+        },
+
+        inputFromIATA: (state: any, action: PayloadAction<string>) => {
+            state.inputFromIATA = action.payload;
+        },
+
+        inputFromLocation: (state: any, action: PayloadAction<string>) => {
+            state.inputFromLocation = action.payload;
+        },
+        inputToIATA: (state: any, action: PayloadAction<string>) => {
+            state.inputToIATA = action.payload;
+        },
+
+        inputToLocation: (state: any, action: PayloadAction<string>) => {
+            state.inputToLocation = action.payload;
+        },
     },
 
 });
 
 
-export const {direction, flightClass, adults, children, infants} = dataTicketAvia.actions;
+export const {direction, flightClass, adults, children, infants, inputFromIATA, inputFromLocation, inputToIATA, inputToLocation} = dataTicketAvia.actions;
 export default dataTicketAvia.reducer;

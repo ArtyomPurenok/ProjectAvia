@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import './PassengerTypeCard.scss';
 import { useDispatch } from "react-redux";
 
-import { adults } from "../../../../../../../redux/reducer/dataSearchAviaTicketReducer";
+import { adults } from "../../../../../../redux/reducer/dataSearchAviaTicketReducer";
 
-import { Button } from "../../../../../../Button";
+import { Button } from "../../../../../Button";
 
 
 type PassengerProps = {
@@ -17,6 +17,7 @@ type PassengerProps = {
 
 export const PassengerTypeCard = ({namePassenger, addition, numberPassenger, typePassenger}: PassengerProps) => {
     const dispatch = useDispatch();
+    
     const [number, setNumber] = useState(0);
 
     useEffect(() => {

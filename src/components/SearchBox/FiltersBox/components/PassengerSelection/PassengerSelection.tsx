@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import './PassengerSelection.scss';
 import { useSelector } from "react-redux";
 
-import { adults, children, infants } from "../../../../../../redux/reducer/dataSearchAviaTicketReducer";
+import { adults, children, infants } from "../../../../../redux/reducer/dataSearchAviaTicketReducer";
 
 import { PassengerTypeCard } from "./PassengerTypeCard";
-import { Button } from "../../../../../Button";
+import { Button } from "../../../../Button";
 
 
 
