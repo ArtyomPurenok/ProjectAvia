@@ -1,12 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useSelector } from "react-redux";
-import { useFormik } from 'formik';
+import { useDispatch, useSelector } from "react-redux";
 import './InputsBox.scss';
 
 import { Input } from "../../Input";
 import { Button } from "../../Button";
 import { RecommendedCountries } from "./RecommendedCountries";
-import { inputFromIATA, inputFromLocation, inputToIATA, inputToLocation } from "../../../redux/reducer/dataSearchAviaTicketReducer";
+import { inputFromIATA, inputFromLocation, inputToIATA, inputToLocation, calendarStart, calendarFinish, reverse } from "../../../redux/reducer/dataSearchAviaTicketReducer";
 
 import { TbCurrentLocation } from "react-icons/tb";
 import { IoLocationOutline } from "react-icons/io5";
@@ -14,37 +13,11 @@ import { RiArrowLeftRightFill } from "react-icons/ri";
 
 
 
-export const InputsBox = ({ onChange }: any) => {
+export const InputsBox = () => {
     const dataForSearchReducer = useSelector((state: any) => state.dataTicketSearch);
+    const dispatch = useDispatch();
     const refInputFrom = useRef(null);
-    const refInputTo = useRef(null);
-
-    
-    const formik = useFormik({
-        initialValues: {
-            from: dataForSearchReducer.inputFromIATA ?? '',
-            to: dataForSearchReducer.inputToIATA ?? '',
-            calendarStart: '',
-            calendarFinish: ''
-        },
-        onSubmit: values => {
-        }
-    });
-
-    const inputDateUp = () => {
-        onChange(formik);
-    };
-
-
-
-
-
-
-
-
-
-
-
+    const refInputTo = useRef(null);    
 
 
     const objValueInputFrom = {
@@ -58,10 +31,9 @@ export const InputsBox = ({ onChange }: any) => {
 
 
 
+
+
     const [textForSeach, setTextForSeach] = useState('');
-
-
-
 
 
     //input from
@@ -72,7 +44,6 @@ export const InputsBox = ({ onChange }: any) => {
             setInputTo(false);
             setInputFrom(true);
             setTextForSeach(event.target.value);
-            formik.handleChange;
         }else {setInputFrom(false);}
     };
 
@@ -106,7 +77,6 @@ export const InputsBox = ({ onChange }: any) => {
             setInputFrom(false);
             setInputTo(true);
             setTextForSeach(event.target.value);
-            formik.handleChange;
         }else {setInputTo(false);}
     };
 
@@ -130,6 +100,17 @@ export const InputsBox = ({ onChange }: any) => {
     }, [dataForSearchReducer.inputToLocation]);
 
 
+    //calendar
+    const setCalendarStart = (el: any) => {
+        console.log(el.target.value);
+        
+        dispatch(calendarStart(el.target.value));
+    };
+    const setCalendarFinish = (el: any) => {
+        dispatch(calendarFinish(el.target.value));
+    };
+
+    
 
 
 
@@ -137,33 +118,47 @@ export const InputsBox = ({ onChange }: any) => {
 
 
 
-    return <form onBlur={inputDateUp} onSubmit={formik.handleSubmit}>
-        <div className="inputs-box">
-            <div className="inputs-box_inputs">
 
-                <div className="inputs-box_input-div-left">
-                    <TbCurrentLocation className="inputs-box_input-div-left--img"/>
-                    <Input refInput={refInputFrom} onClick={selectTextInputFrom} onChange={findCountryFrom} className="inputs-box_input-div-left--input" defaultValue={null} placeholder="Откуда" name="from"/>
-                    <Button className="inputs-box_inputs--button" Icon={RiArrowLeftRightFill}/>
+    // const [trans, setTrans] = useState('');
 
-                    {inputFrom && <RecommendedCountries reducersObject={objValueInputFrom} text={textForSeach} onClick={closeInputFrom}/>}
+    const setReverse = () => {
+        dispatch(reverse());
+        // setTrans('position');
+        // if (trans === 'position') {
+        //     setTrans('');
+        // };
+    };
+
+
+
+
+
+
+    return  <div className="inputs-box">
+                <div className="inputs-box_inputs">
+
+                    <div className="inputs-box_input-div-left">
+                        <TbCurrentLocation className="inputs-box_input-div-left--img"/>
+                        <Input refInput={refInputFrom} onClick={selectTextInputFrom} onChange={findCountryFrom} className="inputs-box_input-div-left--input" defaultValue={null} placeholder="Откуда"/>
+                        <Button onClick={setReverse} className='inputs-box_inputs--button' Icon={RiArrowLeftRightFill}/>
+
+                        {inputFrom && <RecommendedCountries reducersObject={objValueInputFrom} text={textForSeach} onClick={closeInputFrom}/>}
+                    </div>
+
+
+                    <div className="inputs-box_input-div-right">
+                        <IoLocationOutline className="inputs-box_input-div-right--img"/>
+                        <Input refInput={refInputTo} onClick={selectTextInputTo} onChange={findCountryTo} className="inputs-box_input-div-right--input" defaultValue={null} placeholder="Куда"/>
+
+                        {inputTo && <RecommendedCountries reducersObject={objValueInputTo} text={textForSeach} onClick={closeInputTo}/>}
+                    </div>
+
                 </div>
 
 
-                <div className="inputs-box_input-div-right">
-                    <IoLocationOutline className="inputs-box_input-div-right--img"/>
-                    <Input refInput={refInputTo} onClick={selectTextInputTo} onChange={findCountryTo} className="inputs-box_input-div-right--input" defaultValue={null} placeholder="Куда" name="to"/>
-
-                    {inputTo && <RecommendedCountries reducersObject={objValueInputTo} text={textForSeach} onClick={closeInputTo}/>}
+                <div>
+                    <Input className="inputs-box_calendar" type='date' onChange={setCalendarStart}/>
+                    <Input className="inputs-box_calendar" type='date' onChange={setCalendarFinish}/>
                 </div>
-
-            </div>
-
-
-            <div>
-                <Input className="inputs-box_calendar" type='date' placeholder="Data S" value={formik.values.calendarStart} onChange={formik.handleChange} name="calendarStart"/>
-                <Input className="inputs-box_calendar" type='date' placeholder="Data F" value={formik.values.calendarFinish} onChange={formik.handleChange} name="calendarFinish"/>
-            </div>
-        </div>;
-    </form>;
+            </div>;
 };

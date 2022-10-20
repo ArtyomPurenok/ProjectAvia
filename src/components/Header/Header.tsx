@@ -16,7 +16,6 @@ import { BurgerMenu } from "../BurgerMenu/BurgerMenu";
 import { Navigatebar } from "../Navigatebar/Navigatebar";
 import { SearchBox } from "../SearchBox";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
 
 import { TicketCard } from "../TicketCard";
 import { useAuth } from "../hooks/useAuth";
