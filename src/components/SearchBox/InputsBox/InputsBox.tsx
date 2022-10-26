@@ -10,6 +10,8 @@ import { inputFromIATA, inputFromLocation, inputToIATA, inputToLocation, calenda
 import { TbCurrentLocation } from "react-icons/tb";
 import { IoLocationOutline } from "react-icons/io5";
 import { RiArrowLeftRightFill } from "react-icons/ri";
+import AirDatepicker from "air-datepicker";
+import 'air-datepicker/air-datepicker.css';
 
 
 
@@ -17,8 +19,21 @@ export const InputsBox = () => {
     const dataForSearchReducer = useSelector((state: any) => state.dataTicketSearch);
     const dispatch = useDispatch();
     const refInputFrom = useRef(null);
-    const refInputTo = useRef(null);    
+    const refInputTo = useRef(null);
+    const [valCalendar, setValCalendar] = useState('');
 
+    function getDate(e: any) {
+        setValCalendar(e.target.value);
+
+    }
+    let date = new Date();
+    const calendarOPtions = {
+        range: true,
+        multipleDatesSeparator: '-',
+
+        minDate: date
+    };
+    new AirDatepicker('.calendar', calendarOPtions);
 
     const objValueInputFrom = {
         reducerInputIATA: inputFromIATA,
@@ -29,26 +44,21 @@ export const InputsBox = () => {
         reducerInputLocation: inputToLocation,
     };
 
-
-
-
-
     const [textForSeach, setTextForSeach] = useState('');
-
 
     //input from
     const [inputFrom, setInputFrom] = useState(false);
-    
+
     const findCountryFrom = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (event.target.value.length >= 1) {
             setInputTo(false);
             setInputFrom(true);
             setTextForSeach(event.target.value);
-        }else {setInputFrom(false);}
+        } else { setInputFrom(false); }
     };
 
     const setValueInputFrom = (el: any) => {
-        el.current.value = dataForSearchReducer.inputFromLocation;  
+        el.current.value = dataForSearchReducer.inputFromLocation;
     };
 
     const closeInputFrom = () => {
@@ -66,9 +76,6 @@ export const InputsBox = () => {
         setValueInputFrom(refInputFrom);
     }, [dataForSearchReducer.inputFromLocation]);
 
-
-
-
     //input to
     const [inputTo, setInputTo] = useState(false);
 
@@ -77,11 +84,11 @@ export const InputsBox = () => {
             setInputFrom(false);
             setInputTo(true);
             setTextForSeach(event.target.value);
-        }else {setInputTo(false);}
+        } else { setInputTo(false); }
     };
 
     const setValueInputTo = (el: any) => {
-        el.current.value = dataForSearchReducer.inputToLocation;  
+        el.current.value = dataForSearchReducer.inputToLocation;
     };
 
     const closeInputTo = () => {
@@ -99,66 +106,33 @@ export const InputsBox = () => {
         setValueInputTo(refInputTo);
     }, [dataForSearchReducer.inputToLocation]);
 
-
     //calendar
-    const setCalendarStart = (el: any) => {
-        console.log(el.target.value);
-        
-        dispatch(calendarStart(el.target.value));
-    };
-    const setCalendarFinish = (el: any) => {
-        dispatch(calendarFinish(el.target.value));
+    const setCalendar = (el: any) => {
+        const dataFormat = el.target.value.split('-');
+        dispatch(calendarStart(dataFormat[0].split('.').join('%2F')));
+        dataFormat[1] ? dispatch(calendarFinish(dataFormat[1].split('.').join('%2F'))) : '';
     };
 
-    
+    const setReverse = () => { dispatch(reverse()); };
 
+    return <div className="inputs-box">
+        <div className="inputs-box_inputs">
 
+            <div className="inputs-box_input-div-left">
+                <TbCurrentLocation className="inputs-box_input-div-left--img" />
+                <Input refInput={refInputFrom} onClick={selectTextInputFrom} onChange={findCountryFrom} className="inputs-box_input-div-left--input" defaultValue={null} placeholder="Откуда" />
+                <Button onClick={setReverse} className='inputs-box_inputs--button' Icon={RiArrowLeftRightFill} />
+                {inputFrom && <RecommendedCountries reducersObject={objValueInputFrom} text={textForSeach} onClick={closeInputFrom} />}
+            </div>
+            <div className="inputs-box_input-div-right">
+                <IoLocationOutline className="inputs-box_input-div-right--img" />
+                <Input refInput={refInputTo} onClick={selectTextInputTo} onChange={findCountryTo} className="inputs-box_input-div-right--input" defaultValue={null} placeholder="Куда" />
 
-
-
-
-
-
-    // const [trans, setTrans] = useState('');
-
-    const setReverse = () => {
-        dispatch(reverse());
-        // setTrans('position');
-        // if (trans === 'position') {
-        //     setTrans('');
-        // };
-    };
-
-
-
-
-
-
-    return  <div className="inputs-box">
-                <div className="inputs-box_inputs">
-
-                    <div className="inputs-box_input-div-left">
-                        <TbCurrentLocation className="inputs-box_input-div-left--img"/>
-                        <Input refInput={refInputFrom} onClick={selectTextInputFrom} onChange={findCountryFrom} className="inputs-box_input-div-left--input" defaultValue={null} placeholder="Откуда"/>
-                        <Button onClick={setReverse} className='inputs-box_inputs--button' Icon={RiArrowLeftRightFill}/>
-
-                        {inputFrom && <RecommendedCountries reducersObject={objValueInputFrom} text={textForSeach} onClick={closeInputFrom}/>}
-                    </div>
-
-
-                    <div className="inputs-box_input-div-right">
-                        <IoLocationOutline className="inputs-box_input-div-right--img"/>
-                        <Input refInput={refInputTo} onClick={selectTextInputTo} onChange={findCountryTo} className="inputs-box_input-div-right--input" defaultValue={null} placeholder="Куда"/>
-
-                        {inputTo && <RecommendedCountries reducersObject={objValueInputTo} text={textForSeach} onClick={closeInputTo}/>}
-                    </div>
-
-                </div>
-
-
-                <div>
-                    <Input className="inputs-box_calendar" type='date' onChange={setCalendarStart}/>
-                    <Input className="inputs-box_calendar" type='date' onChange={setCalendarFinish}/>
-                </div>
-            </div>;
+                {inputTo && <RecommendedCountries reducersObject={objValueInputTo} text={textForSeach} onClick={closeInputTo} />}
+            </div>
+        </div>
+        <div>
+            <input id="calendar" onBlur={setCalendar} className="calendar inputs-box_calendar" />
+        </div>
+    </div>;
 };

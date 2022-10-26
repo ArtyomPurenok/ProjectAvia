@@ -11,9 +11,9 @@ type Props = {
     reducersObject?: any
 }
 
-export const RecommendedCountries = ({text, onClick, reducersObject}: Props) => {
+export const RecommendedCountries = ({ text, onClick, reducersObject }: Props) => {
     const dispatch = useDispatch();
-    
+
     const [arrRecommended, setArrRecommended] = useState([]);
 
 
@@ -21,21 +21,21 @@ export const RecommendedCountries = ({text, onClick, reducersObject}: Props) => 
         const response: any = await fetch(`https://autocomplete.travelpayouts.com/places2?locale=en&types[]=airport&types[]=city&term=${text}`, {
             method: "GET",
             headers: {
-              accept: "application/json",
-              "Content-Type": "application/json",
+                accept: "application/json",
+                "Content-Type": "application/json",
             },
         });
 
-        if(response.ok) {     
+        if (response.ok) {
             const result = await response.json();
             setArrRecommended(result.slice(0, 6));
         }
     };
 
-    
+
     useEffect(() => {
         getArrCountries();
-    }, [text]);    
+    }, [text]);
 
 
 
@@ -45,8 +45,8 @@ export const RecommendedCountries = ({text, onClick, reducersObject}: Props) => 
 
         {arrRecommended?.map((el: any) => {
             if (el.type === "city") {
-                return <div className="recommended-countries_card-city" onClick={() => {dispatch(reducersObject.reducerInputIATA(el.code)), dispatch(reducersObject.reducerInputLocation(el.name));}}>
-                    <div style={{display: "flex", alignItems: "center"}}>
+                return <div className="recommended-countries_card-city" onClick={() => { dispatch(reducersObject.reducerInputIATA(el.code)), dispatch(reducersObject.reducerInputLocation(el.name)); }}>
+                    <div style={{ display: "flex", alignItems: "center" }}>
                         <p className="recommended-countries_card-city--city">{el.name}</p>
                         <p className="recommended-countries_card-city--country">{`(${el.country_name})`}</p>
                     </div>
@@ -57,13 +57,13 @@ export const RecommendedCountries = ({text, onClick, reducersObject}: Props) => 
             }
 
             if (el.type === "airport") {
-                return <div className="recommended-countries_card-airport" onClick={() => {dispatch(reducersObject.reducerInputIATA(el.code)), dispatch(reducersObject.reducerInputLocation(el.name));}}>
-                    <div style={{display: "flex", alignItems: "center"}}>
-                        <GiControlTower/>
-            
+                return <div className="recommended-countries_card-airport" onClick={() => { dispatch(reducersObject.reducerInputIATA(el.code)), dispatch(reducersObject.reducerInputLocation(el.name)); }}>
+                    <div style={{ display: "flex", alignItems: "center" }}>
+                        <GiControlTower />
+
                         <div>
-                            <p  className="recommended-countries_airport">{el.name}</p>
-                            <p  className="recommended-countries_country">{`(${el.city_name})`}</p>
+                            <p className="recommended-countries_airport">{el.name}</p>
+                            <p className="recommended-countries_country">{`(${el.city_name})`}</p>
                         </div>
                     </div>
 
