@@ -1,0 +1,10 @@
+.home-page {
+    background-color: rgb(0, 110, 255);
+
+    &_center {
+        background: url("https://img1.akspic.ru/previews/1/5/2/3/13251/13251-aerokosmicheskaya_tehnika-aviaciya-aviacionnyj_dvigatel-avialajner-boeing_737_next_generation-x750.jpg")  0 0/auto 100% no-repeat;
+        width: 100%;
+        height: 95vh;
+        // mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    }
+}
