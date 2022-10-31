@@ -19,11 +19,12 @@ import { Link } from "react-router-dom";
 
 import { TicketCard } from "../TicketCard";
 import { useAuth } from "../hooks/useAuth";
+import { Loader } from "../Loader/Loader";
 
 
 
 export const Header = () => {
-  const { email, id, token } = useAuth();
+  const { email } = useAuth();
   const menuList = [
     { id: 1, name: "Home", src: "about" },
     { id: 2, name: "Tours", src: "projects" },
@@ -58,11 +59,12 @@ export const Header = () => {
         </NavBar>
         <Navigatebar />
         <SearchBox renderTicket={renderTicket} />
+
         {ticketData && ticketData?.data.map((ticket: any, index: any) => (<TicketCard key={index} currency={ticketData.currency} ticket={ticket} />))}
 
       </HeaderContainer>
 
-      <Section id="TOURS">TOURS</Section>
+      <Section id="TOURS">bla</Section>
       <Section id="HOUSING">HOUSING</Section>
       <Section id="AIR TISCRT">AIR TISCRT</Section>
       <Section id="CAR RENTAL">CAR RENTAL</Section>

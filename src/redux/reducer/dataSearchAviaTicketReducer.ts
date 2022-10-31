@@ -1,8 +1,8 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 
 const initialState: any = {
-    direction: "in two directions",
-    flightClass: "economy",
+    direction: "oneway",
+    flightClass: "M",
     adults: 1,
     children: 0,
     infants: 0,
@@ -30,7 +30,7 @@ const dataTicketAvia: any = createSlice({
         adults: (state: any, action: PayloadAction<string>) => {
             if (action.payload === "plus") {
                 state.adults++;
-            }else if (action.payload === "minus") {
+            } else if (action.payload === "minus") {
                 state.adults--;
             }
 
@@ -42,7 +42,7 @@ const dataTicketAvia: any = createSlice({
         children: (state: any, action: PayloadAction<string>) => {
             if (action.payload === "plus") {
                 state.children++;
-            }else if (action.payload === "minus") {
+            } else if (action.payload === "minus") {
                 state.children--;
             }
 
@@ -54,7 +54,7 @@ const dataTicketAvia: any = createSlice({
         infants: (state: any, action: PayloadAction<string>) => {
             if (action.payload === "plus") {
                 state.infants++;
-            }else if (action.payload === "minus") {
+            } else if (action.payload === "minus") {
                 state.infants--;
             }
 
@@ -102,5 +102,5 @@ const dataTicketAvia: any = createSlice({
 });
 
 
-export const {direction, flightClass, adults, children, infants, inputFromIATA, inputFromLocation, inputToIATA, inputToLocation, calendarStart, calendarFinish, reverse} = dataTicketAvia.actions;
+export const { direction, flightClass, adults, children, infants, inputFromIATA, inputFromLocation, inputToIATA, inputToLocation, calendarStart, calendarFinish, reverse } = dataTicketAvia.actions;
 export default dataTicketAvia.reducer;

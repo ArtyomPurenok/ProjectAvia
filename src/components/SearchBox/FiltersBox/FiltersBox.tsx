@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import './FiltersBox.scss';
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { Button } from "../../Button";
 import { PassengerSelection } from "./components/PassengerSelection";
@@ -11,9 +11,11 @@ import { MdOutlineArrowDropDown } from "react-icons/md";
 
 import { useChoosingDirection } from "./hooks/useChoosingDirection";
 import { useCountingPassengers } from "./hooks/useCountingPassengers";
+import { direction, flightClass } from "../../../redux/reducer/dataSearchAviaTicketReducer";
 
 
 export const FiltersBox = () => {
+    const dispatch = useDispatch();
     const dataPassenger = useSelector((state: any) => state.dataTicketSearch);
     const hookImgDirection = useChoosingDirection;
     const countingPassengers = useCountingPassengers;
@@ -28,8 +30,10 @@ export const FiltersBox = () => {
     };
 
     const [imgDirection, setImgDirection] = useState(<RiArrowLeftRightFill />);
+
     const choosingDirection = (el: any) => {
-        return setImgDirection(hookImgDirection(el.target.value));
+        dispatch(direction(el.target.value));
+        // setImgDirection(hookImgDirection(el.target.value));
     };
 
 
@@ -42,9 +46,9 @@ export const FiltersBox = () => {
 
             <div className="filters-box_select-arrow"></div>
 
-            <select className="filters-box_select-directions" onChange={choosingDirection}>
-                <option>Туда и обратно</option>
-                <option>В одну сторону</option>
+            <select className="filters-box_select-directions" disabled onChange={choosingDirection}>
+                <option value="round">Туда и обратно</option>
+                <option value="oneway">В одну сторону</option>
             </select>
         </div>
 
@@ -63,9 +67,11 @@ export const FiltersBox = () => {
 
             <div className="filters-box_select-arrow"></div>
 
-            <select className="filters-box_select-directions">
-                <option>Экономкласс</option>
-                <option>Первый класс</option>
+            <select className="filters-box_select-directions" onChange={(el: any) => dispatch(flightClass(el.target.value))}>
+                <option value='M'>economy</option>
+                <option value='W'>economy premium</option>
+                <option value='C'>business</option>
+                <option value='F'>first class</option>
             </select>
         </div>
     </div>;
