@@ -145,7 +145,7 @@ export const InputsBox = () => {
             </div>
         </div>
         <div>
-            <input id="calendar" onBlur={setCalendar} className="calendar inputs-box_calendar" />
+            <input id="calendar" onBlur={setCalendar} className="calendar inputs-box_calendar" placeholder="Дата вылета"/>
         </div>
     </div>;
 };

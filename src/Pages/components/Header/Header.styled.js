@@ -1,15 +1,10 @@
-
 import styled from "styled-components";
-import bg from './img/BackGroundImage/beach.jpg';
 
 export const HeaderContainer = styled.div`
   width: 100%;
-  min-height: 95vh;
+  height: 100px;
   display: table;
   background-size: 100% auto;
-  background-image: url(${bg});
-
- 
 `;
 
 export const NavBar = styled.div`

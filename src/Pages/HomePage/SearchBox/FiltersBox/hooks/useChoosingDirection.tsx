@@ -4,9 +4,9 @@ import { RiArrowLeftRightFill } from "react-icons/ri";
 import { MdArrowRightAlt } from "react-icons/md";
 
 export const useChoosingDirection = (el: any) => {
-    if (el === "Туда и обратно") {
+    if (el === "round") {
         return <RiArrowLeftRightFill/>;
-    }else if (el === "В одну сторону") {
+    }else if (el === "oneway") {
         return <MdArrowRightAlt/>;
     }
 

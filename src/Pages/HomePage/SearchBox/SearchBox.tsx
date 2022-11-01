@@ -5,7 +5,7 @@ import './SearchBox.scss';
 import { InputsBox } from "./InputsBox";
 import { FiltersBox } from "./FiltersBox";
 import { Button } from "../../../components/Button";
-import { Loader } from "../Loader/Loader";
+import { Loader } from "../../../components/Loader/Loader";
 
 
 export const SearchBox = ({ renderTicket }: any) => {

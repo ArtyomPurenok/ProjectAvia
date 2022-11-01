@@ -11,7 +11,7 @@ import { MdOutlineArrowDropDown } from "react-icons/md";
 
 import { useChoosingDirection } from "./hooks/useChoosingDirection";
 import { useCountingPassengers } from "./hooks/useCountingPassengers";
-import { direction, flightClass } from "../../../redux/reducer/dataSearchAviaTicketReducer";
+import { direction, flightClass } from "../../../../redux/reducer/dataSearchAviaTicketReducer";
 
 
 export const FiltersBox = () => {
@@ -33,7 +33,7 @@ export const FiltersBox = () => {
 
     const choosingDirection = (el: any) => {
         dispatch(direction(el.target.value));
-        // setImgDirection(hookImgDirection(el.target.value));                        ???
+        setImgDirection(hookImgDirection(el.target.value));
     };
 
 
