@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {  useState } from "react";
 import './HomePage.scss';
 
 import { Header } from "../components/Header/Header";
@@ -13,6 +13,7 @@ export const HomePage = () => {
     const renderTicket = (ticket: any) => {
       setticketData(ticket);
     };
+
 
     return <div className="home-page">
 

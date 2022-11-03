@@ -2,7 +2,6 @@
     width: 100%;
     margin: 15px 0px;
     display: flex;
-    // justify-content: center;
     
 
     &_select-div {
@@ -62,6 +61,15 @@
         border-radius: 3px;
         background-color: rgb(248, 254, 255);
 
+        &--background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgb(0, 0, 0, 0);
+            z-index: 2;
+        }
 
         &--button {
             width: 100%;

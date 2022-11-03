@@ -36,8 +36,6 @@ export const MenuItem = styled.div`
 `;
 export const Item = styled.span`
   position: relative;
-  z-index: 5;
-
   font-size: 2em;
 `;
 export const MenuWrapper = styled.div`

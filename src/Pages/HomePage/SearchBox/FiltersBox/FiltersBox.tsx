@@ -39,8 +39,7 @@ export const FiltersBox = () => {
 
 
     return <div className="filters-box">
-
-
+        
         <div className="filters-box_select-div">
             {imgDirection}
 
@@ -58,7 +57,8 @@ export const FiltersBox = () => {
             <div className="filters-box_number-passengers--user"><HiOutlineUser /></div>
             <Button className="filters-box_number-passengers--button" text={`${countingPassengers(dataPassenger)}`} onClick={OpenSelection} />
             <div className="filters-box_number-passengers--arrow"><MdOutlineArrowDropDown /></div>
-            {active && <PassengerSelection />}
+            {active && <PassengerSelection test={OpenSelection}/>}
+            {active && <div className="filters-box_number-passengers--background" onClick={OpenSelection}></div>}
         </div>
 
 

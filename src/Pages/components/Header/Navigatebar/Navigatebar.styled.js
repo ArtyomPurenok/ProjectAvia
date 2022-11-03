@@ -15,7 +15,6 @@ export const MenuItem = styled.div`
 `;
 export const Item = styled.a`
   position: relative;
-  z-index: 5;
   font-size: 2em;
 `;
 export const Wrapper = styled.div`

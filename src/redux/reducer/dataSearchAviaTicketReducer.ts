@@ -27,40 +27,43 @@ const dataTicketAvia: any = createSlice({
             state.flightClass = action.payload;
         },
 
-        adults: (state: any, action: PayloadAction<string>) => {
-            if (action.payload === "plus") {
-                state.adults++;
-            } else if (action.payload === "minus") {
-                state.adults--;
-            }
+        adults: (state: any, action: PayloadAction<number>) => {
+            state.adults = action.payload;
+            // if (action.payload === "plus") {
+            //     state.adults++;
+            // } else if (action.payload === "minus") {
+            //     state.adults--;
+            // }
 
-            if (state.adults < 0) {
-                state.adults = 0;
-            }
+            // if (state.adults < 0) {
+            //     state.adults = 0;
+            // }
         },
 
-        children: (state: any, action: PayloadAction<string>) => {
-            if (action.payload === "plus") {
-                state.children++;
-            } else if (action.payload === "minus") {
-                state.children--;
-            }
+        children: (state: any, action: PayloadAction<number>) => {
+            state.children = action.payload;
+            // if (action.payload === "plus") {
+            //     state.children++;
+            // } else if (action.payload === "minus") {
+            //     state.children--;
+            // }
 
-            if (state.children < 0) {
-                state.children = 0;
-            }
+            // if (state.children < 0) {
+            //     state.children = 0;
+            // }
         },
 
         infants: (state: any, action: PayloadAction<string>) => {
-            if (action.payload === "plus") {
-                state.infants++;
-            } else if (action.payload === "minus") {
-                state.infants--;
-            }
+            state.infants = action.payload;
+            // if (action.payload === "plus") {
+            //     state.infants++;
+            // } else if (action.payload === "minus") {
+            //     state.infants--;
+            // }
 
-            if (state.infants < 0) {
-                state.infants = 0;
-            }
+            // if (state.infants < 0) {
+            //     state.infants = 0;
+            // }
         },
 
         inputFromIATA: (state: any, action: PayloadAction<string>) => {

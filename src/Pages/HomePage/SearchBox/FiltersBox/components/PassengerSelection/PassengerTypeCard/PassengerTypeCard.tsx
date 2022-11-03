@@ -1,35 +1,41 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import './PassengerTypeCard.scss';
-import { useDispatch } from "react-redux";
 
 import { Button } from "../../../../../../../components/Button";
 
 
 type PassengerProps = {
     namePassenger: string
-    typePassenger?: any
+    callBackNumber?: any
     addition?: string
     numberPassenger: number
 
 }
 
-export const PassengerTypeCard = ({namePassenger, addition, numberPassenger, typePassenger}: PassengerProps) => {
-    const dispatch = useDispatch();
+export const PassengerTypeCard = ({namePassenger, addition, numberPassenger, callBackNumber}: PassengerProps) => {
     
-    const [number, setNumber] = useState(0);
+    const [number, setNumber] = useState<Number>(0);
+
+    useMemo(() => {
+        setNumber(numberPassenger);
+    }, [numberPassenger]);
 
     useEffect(() => {
-        setNumber(numberPassenger);
-    }), [];
+        callBackNumber(number);
+    });
+
 
 
     const numberUp = () => {
-        return dispatch(typePassenger("plus"));
-    };
-    const numberDown = () => {
-        return dispatch(typePassenger("minus"));
+        setNumber(+number + 1);
     };
 
+    const numberDown = () => {
+        if (number === 0) {
+            return setNumber(0);
+        }
+        setNumber(+number - 1);
+    };
 
 
     return <div className="passenger-type-card">
@@ -38,7 +44,7 @@ export const PassengerTypeCard = ({namePassenger, addition, numberPassenger, typ
         </p>
 
         <Button className="passenger-type-card_button-minus" text={'-'} onClick={numberDown}/>
-        <p className="passenger-type-card_passenger-number">{numberPassenger && number}</p>
+        <p className="passenger-type-card_passenger-number">{+number}</p>
         <Button className="passenger-type-card_button-plus" text={'+'} onClick={numberUp}/>
     </div>;
 };
