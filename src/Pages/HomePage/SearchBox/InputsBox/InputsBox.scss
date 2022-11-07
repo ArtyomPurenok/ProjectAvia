@@ -2,7 +2,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    justify-content: space-between;
+    
     
     
     &_calendar {
@@ -94,6 +94,7 @@
         position: sticky;
         width: 240px;
         height: 60px;
+        margin-right: 10px;
         padding-left: 20px;
         border-radius: 3px;
         background-color: rgb(248, 254, 255);
