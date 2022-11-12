@@ -1,17 +1,28 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
+import './ModalTicket.scss';
+
 import { Button } from '../Button';
+import { Input } from '../Input';
+import { RecommendedCountries } from "../../Pages/HomePage/SearchBox/InputsBox/RecommendedCountries";
+import { inputRandomWaysIATA, inputRandomWaysLocation } from "../../redux/reducer/dataSearchAviaTicketReducer";
 import { Calendar } from '../Calendar/Calendar';
 import { QuickTicket } from '../QuickTicket/QuickTicket';
 import { Wrapper, Container, Border, ContainerTicket } from './ModalTicket.styled';
-export const ModalTicket = ({ acvive, setActive }: any) => {
 
-    const { calendarStart, calendarFinish } = useSelector((state: any) => state.dataTicketSearch);
+
+
+
+export const ModalTicket = ({ active, setActive }: any) => {
+
+    const dataForSeach = useSelector((state: any) => state.dataTicketSearch);
 
     const [ticket, setTicket]: any = useState();
 
     const getTicket = async () => {
-        const url = `https://api.tequila.kiwi.com/v2/search?fly_from=MIL&&dateFrom=${calendarStart}&dateTo=${calendarFinish}`;
+        // console.log(calendarStart + '----->' + calendarFinish);
+        
+        const url = `https://api.tequila.kiwi.com/v2/search?fly_from=${dataForSeach.inputRandomWaysIATA}&&dateFrom=${dataForSeach.calendarStart}&dateTo=${dataForSeach.calendarStart}`;
         const options = {
             headers: {
                 'accept': 'application/json',
@@ -21,20 +32,50 @@ export const ModalTicket = ({ acvive, setActive }: any) => {
         const response = await fetch(url, options);
         const responseFormat = await (response).json();
         setTicket(responseFormat);
-        ticket.data.map((oneTicket: any, index: any) => { return console.log(oneTicket); });
+        // ticket.data.map((oneTicket: any, index: any) => { return console.log(oneTicket); });
     };
 
 
-    if (!acvive) return null;
+    //Input
+    const inputReducer = useSelector((state: any) => state.dataTicketSearch);
+    const refInput = useRef(null);
+    const [input, setInput] = useState(false);
+    const [textForSeach, setTextForSeach] = useState('');
+
+    const objValueInput = {
+        reducerInputIATA: inputRandomWaysIATA,
+        reducerInputLocation: inputRandomWaysLocation,
+    };
+
+    const findCountry = (event: React.ChangeEvent<HTMLInputElement>) => {
+        if (event.target.value.length >= 1) {
+            setInput(true);
+            setTextForSeach(event.target.value);
+        } else { setInput(false); }
+    };
+
+    const setValueInputFrom = (el: any) => {
+        el.current.value = inputReducer.inputRandomWaysLocation;
+    };
+
+    const closeInput = () => {
+        setInput(false);
+        setValueInputFrom(refInput);
+    };
+
+    useEffect(() => {
+        setValueInputFrom(refInput);
+    }, [inputReducer.inputRandomWaysLocation]);
+
+    
 
     return (
-        <Wrapper onClick={() => setActive(!acvive)}>
+        <Wrapper onClick={() => setActive(!active)}>
             <Container onClick={e => e.stopPropagation()}>
                 <Border>
-                    {/*                     
-Вот тут нужно вставить твой компонет у меня не получается!!!!!!!!
-                    <InputIATA placeholder='Enter country' onChange={getData} value={valueInputIATA} />
-                     */}
+                    <Input className='modal-ticket_input' refInput={refInput} onChange={findCountry} defaultValue={null}  placeholder='Введите страну'/>
+                    {input && <RecommendedCountries reducersObject={objValueInput} text={textForSeach} onClick={closeInput}/>}
+                    {/* {<InputIATA placeholder='Enter country' onChange={getData} value={valueInputIATA} />} */}
                     <Calendar range={false} />
                     <Button onClick={getTicket} className='buttonWontToGo' text='Хочу улететь' />
                 </Border>

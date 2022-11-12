@@ -19,7 +19,7 @@ export const HomePage = () => {
             <Header />
             <SearchBox renderTicket={renderTicket} />
             <Button className="buttonRandomWay" text='Random Ways' onClick={() => setModalActive(!modalacvive)} />
-            <ModalTicket acvive={modalacvive} setActive={setModalActive} />
+            {modalacvive && <ModalTicket active={modalacvive} setActive={setModalActive} />}
         </div>
 
         {ticketData && ticketData?.data.map((ticket: any, index: any) => (<TicketCard key={index} currency={ticketData.currency} ticket={ticket} />))}
