@@ -8,3 +8,18 @@
         // mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
     }
 }
+.buttonRandomWay{
+    position: absolute;
+    left: -85px;
+    top: 40%;
+    transform: rotate(270deg);
+    width: 200px;
+    height: 55px;
+    font-size: 20px;
+    color: white;
+    margin: 25px 0px 10px 0px;
+    border: 0px solid transparent;
+    border-radius: 3px;
+    background-color: rgb(255, 0, 55);
+    box-shadow: 0 0 9px rgb(0 0 0);
+}

@@ -5,13 +5,14 @@ import './InputsBox.scss';
 import { Input } from "../../../../components/Input";
 import { Button } from "../../../../components/Button";
 import { RecommendedCountries } from "./RecommendedCountries";
-import { inputFromIATA, inputFromLocation, inputToIATA, inputToLocation, calendarStart, calendarFinish, reverse } from "../../../../redux/reducer/dataSearchAviaTicketReducer";
+import { inputFromIATA, inputFromLocation, inputToIATA, inputToLocation, reverse } from "../../../../redux/reducer/dataSearchAviaTicketReducer";
 
 import { TbCurrentLocation } from "react-icons/tb";
 import { IoLocationOutline } from "react-icons/io5";
 import { RiArrowLeftRightFill } from "react-icons/ri";
 import AirDatepicker from "air-datepicker";
 import 'air-datepicker/air-datepicker.css';
+import { Calendar } from "../../../../components/Calendar/Calendar";
 
 
 
@@ -20,11 +21,6 @@ export const InputsBox = () => {
     const dispatch = useDispatch();
     const refInputFrom = useRef(null);
     const refInputTo = useRef(null);
-    const [valCalendar, setValCalendar] = useState('');                  //?
-
-    function getDate(e: any) {
-        setValCalendar(e.target.value);
-    }                                                                      //?
 
     let date = new Date();
 
@@ -53,17 +49,17 @@ export const InputsBox = () => {
 
     //input from
     const [inputFrom, setInputFrom] = useState(false);
-    
+
     const findCountryFrom = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (event.target.value.length >= 1) {
             setInputTo(false);
             setInputFrom(true);
             setTextForSeach(event.target.value);
-        }else {setInputFrom(false);}
+        } else { setInputFrom(false); }
     };
 
     const setValueInputFrom = (el: any) => {
-        el.current.value = dataForSearchReducer.inputFromLocation;  
+        el.current.value = dataForSearchReducer.inputFromLocation;
     };
 
     const closeInputFrom = () => {
@@ -92,11 +88,11 @@ export const InputsBox = () => {
             setInputFrom(false);
             setInputTo(true);
             setTextForSeach(event.target.value);
-        }else {setInputTo(false);}
+        } else { setInputTo(false); }
     };
 
     const setValueInputTo = (el: any) => {
-        el.current.value = dataForSearchReducer.inputToLocation;  
+        el.current.value = dataForSearchReducer.inputToLocation;
     };
 
     const closeInputTo = () => {
@@ -115,18 +111,11 @@ export const InputsBox = () => {
     }, [dataForSearchReducer.inputToLocation]);
 
 
-    //calendar
-    const setCalendar = (el: any) => {
-        const dataFormat = el.target.value.split('-');
-        dispatch(calendarStart(dataFormat[0].split('.').join('%2F')));
-        dataFormat[1] ? dispatch(calendarFinish(dataFormat[1].split('.').join('%2F'))) : '';
-    };
-
     const setReverse = () => { dispatch(reverse()); };
 
 
 
-    
+
 
     return <div className="inputs-box">
         <div className="inputs-box_inputs">
@@ -140,12 +129,12 @@ export const InputsBox = () => {
             <div className="inputs-box_input-div-right">
                 <IoLocationOutline className="inputs-box_input-div-right--img" />
                 <Input refInput={refInputTo} onClick={selectTextInputTo} onChange={findCountryTo} className="inputs-box_input-div-right--input" defaultValue={null} placeholder="Куда" />
-
                 {inputTo && <RecommendedCountries reducersObject={objValueInputTo} text={textForSeach} onClick={closeInputTo} />}
             </div>
         </div>
         <div>
-            <input id="calendar" onBlur={setCalendar} className="calendar inputs-box_calendar" placeholder="Дата вылета"/>
+
+            <Calendar range={true} />
         </div>
     </div>;
 };
