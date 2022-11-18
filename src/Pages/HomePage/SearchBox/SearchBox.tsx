@@ -17,8 +17,6 @@ export const SearchBox = ({ renderTicket }: any) => {
 
         try {
             setloaderActive(true);
-            console.log(dataForSearchReducer, 'rereeer');
-
             const url = `https://api.tequila.kiwi.com/v2/search?fly_from=${dataForSearchReducer.inputFromIATA}&fly_to=${dataForSearchReducer.inputToIATA}&dateFrom=${dataForSearchReducer.calendarStart}&date_to=${dataForSearchReducer.calendarFinish}&adults=${dataForSearchReducer.adults}&children=${dataForSearchReducer.children}&infants=${dataForSearchReducer.infants}&selected_cabins=${dataForSearchReducer.flightClass}&flight_type=oneway&limit=10`;
             const options = {
                 headers: {

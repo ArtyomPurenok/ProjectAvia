@@ -3,10 +3,6 @@ import "./App.css";
 import { HomePage } from "./Pages/HomePage";
 import { BrowserRouter, Route, Routes, } from "react-router-dom";
 import { SingInOut } from "./Pages/SingInOut/SingInOut";
-import { Form } from "./Pages/SingInOut/Form";
-import { SingUP } from "./Pages/SingInOut/SingUP";
-import { SingIN } from "./Pages/SingInOut/SingIN";
-
 function App() {
   return (
     <BrowserRouter>

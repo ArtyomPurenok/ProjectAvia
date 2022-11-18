@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import './PassengerSelection.scss';
 import { useDispatch, useSelector } from "react-redux";
 

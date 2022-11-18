@@ -41,10 +41,6 @@ export const InputsBox = () => {
         reducerInputLocation: inputToLocation,
     };
 
-
-
-
-
     const [textForSeach, setTextForSeach] = useState('');
 
     //input from

@@ -11,13 +11,17 @@ export const NavBar = styled.div`
 display: flex;
 justify-content: space-evenly;
 align-items: center;
-width: 80%;
-height: 100px;
+width: 100%;
+height: 70px;
 margin: 0 auto;
+position:fixed ;
+
+z-index:100;
+&.active{background-color:red}
   `;
 
 export const Logo = styled.img`
-width: 6%;
+width: 4%;
 float: left;
 `;
 
@@ -66,6 +70,9 @@ export const LoginText = styled.p`
   transition: all 0.3s;
   color: white;
   font-size: 2em;
+  
+  &>*{color: white;
+    text-decoration:none ;}
   &:hover {
     font-weight: bolder;
     color: white;
@@ -79,9 +86,15 @@ height: 10px;
 `;
 
 export const Section = styled.section`
-background-color: aquamarine;
+/* background-color: aquamarine; */
 border: 1px solid #000;
+justify-content:center ;
+display:flex ;
+align-content:center ;
+display: flex ;
+align-items: center;
 width: 100%;
-  height: 100vh;
 
+&#TOURS {background-color: white;
+  height:80vh}
 `;
