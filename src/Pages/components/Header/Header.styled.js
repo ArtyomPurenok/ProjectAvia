@@ -12,16 +12,19 @@ display: flex;
 justify-content: space-evenly;
 align-items: center;
 width: 100%;
-height: 70px;
+height: 50px;
 margin: 0 auto;
 position:fixed ;
-
+background-color: transparent;
+transition :background-color 1500ms;
 z-index:100;
-&.active{background-color:red}
+&.active{
+  transition :background-color 1500ms;
+  background-color:red}
   `;
 
 export const Logo = styled.img`
-width: 4%;
+width: 3%;
 float: left;
 `;
 
@@ -40,7 +43,7 @@ export const MenuItem = styled.div`
 `;
 export const Item = styled.span`
   position: relative;
-  font-size: 2em;
+  font-size: 15px;
 `;
 export const MenuWrapper = styled.div`
 display: flex;
@@ -52,8 +55,8 @@ align-items: center;
 `;
 
 export const Avatar = styled.img`
-width: 50px;
-height: 50px;
+width: 30px;
+height: 30px;
 border-radius: 50%;
 `;
 
@@ -69,7 +72,7 @@ export const LoginText = styled.p`
   padding: 0 18px;
   transition: all 0.3s;
   color: white;
-  font-size: 2em;
+  font-size: 20px;
   
   &>*{color: white;
     text-decoration:none ;}
@@ -96,5 +99,5 @@ align-items: center;
 width: 100%;
 
 &#TOURS {background-color: white;
-  height:80vh}
+  height:100vh}
 `;
