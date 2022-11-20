@@ -36,8 +36,6 @@ export const InputsBox = () => {
     };
 
 
-
-
     const [textForSeach, setTextForSeach] = useState('');
 
     const setReverse = () => { dispatch(reverse()); };

@@ -1,53 +1,39 @@
 import LogoImg from "./img/LogoPnG.png";
-import React from "react";
+import React, { useState } from "react";
 import {
   HeaderContainer,
   NavBar,
   Logo,
-  MenuItem,
-  Item,
   MenuWrapper,
   WrapperUserTools,
   LoginText,
   Avatar,
   Section,
 } from "./Header.styled";
-import { BurgerMenu } from "./BurgerMenu/BurgerMenu";
 import { Navigatebar } from "./Navigatebar/Navigatebar";
-
 import { Link } from "react-router-dom";
-
-
 import { useAuth } from "./hooks/useAuth";
-
-
+import { SearchBox } from "../../HomePage/SearchBox";
+import { TicketCard } from "../../HomePage/TicketCard";
+import { PopularDestinationGrid } from "../../../components/PopularDestinationGrid/PopularDestinationGrid";
 
 export const Header = () => {
-  const { email, id, token } = useAuth();
-  const menuList = [
-    { id: 1, name: "Home", src: "about" },
-    { id: 2, name: "Tours", src: "projects" },
-    { id: 3, name: "Blog", src: "blog" },
-    { id: 4, name: "Tickers", src: "contact" },
-  ];
-
+  const [ticketData, setticketData]: any = useState('');
+  const [navBarActiveColor, setNavBarActiveColor] = useState(false);
+  const renderTicket = (ticket: any) => {
+    setticketData(ticket);
+  };
+  const { email } = useAuth();
+  window.addEventListener('scroll', () => window.scrollY > 30 ? setNavBarActiveColor(true) : setNavBarActiveColor(false));
   return (
     <>
       <HeaderContainer>
-        
-        <NavBar>
+        <NavBar className={navBarActiveColor ? "active" : ''}>
           <Logo src={LogoImg} />
-
           <MenuWrapper>
-            {menuList.map(({ id, name, src }) => (
-              <MenuItem key={id}>
-                <Item>{name}</Item>
-              </MenuItem>
-            ))}
+            <Navigatebar />
           </MenuWrapper>
-
           <WrapperUserTools>
-            <BurgerMenu />
             <LoginText>
               <Link to='/login'>Login</Link>
             </LoginText>
@@ -55,16 +41,16 @@ export const Header = () => {
             }
           </WrapperUserTools>
         </NavBar>
-
-        
-        <Navigatebar />
-
+        <SearchBox renderTicket={renderTicket} />
+        {ticketData && ticketData?.data.map((ticket: any, index: any) => (<TicketCard key={index} currency={ticketData.currency} ticket={ticket} />))}
       </HeaderContainer>
 
-      {/* <Section id="TOURS">TOURS</Section>
-      <Section id="HOUSING">HOUSING</Section>
+
+      <Section id="TOURS"><PopularDestinationGrid></PopularDestinationGrid></Section>
+      <Section id="HOUSING">
+      </Section>
       <Section id="AIR TISCRT">AIR TISCRT</Section>
-      <Section id="CAR RENTAL">CAR RENTAL</Section> */}
+      <Section id="CAR RENTAL">CAR RENTAL</Section>
     </>
   );
 };

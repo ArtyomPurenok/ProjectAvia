@@ -15,6 +15,7 @@ export const SearchBox = ({ renderTicket }: any) => {
 
     // async function getTicket() {
 
+
     //     try {
     //         setloaderActive(true);
 

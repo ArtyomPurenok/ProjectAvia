@@ -15,7 +15,7 @@ export const MenuItem = styled.div`
 `;
 export const Item = styled.a`
   position: relative;
-  font-size: 2em;
+  font-size: 20px;
 `;
 export const Wrapper = styled.div`
   display: flex;

@@ -11,13 +11,20 @@ export const NavBar = styled.div`
 display: flex;
 justify-content: space-evenly;
 align-items: center;
-width: 80%;
-height: 100px;
+width: 100%;
+height: 50px;
 margin: 0 auto;
+position:fixed ;
+background-color: transparent;
+transition :background-color 1500ms;
+z-index:100;
+&.active{
+  transition :background-color 1500ms;
+  background-color:red}
   `;
 
 export const Logo = styled.img`
-width: 6%;
+width: 3%;
 float: left;
 `;
 
@@ -36,7 +43,7 @@ export const MenuItem = styled.div`
 `;
 export const Item = styled.span`
   position: relative;
-  font-size: 2em;
+  font-size: 15px;
 `;
 export const MenuWrapper = styled.div`
 display: flex;
@@ -48,8 +55,8 @@ align-items: center;
 `;
 
 export const Avatar = styled.img`
-width: 50px;
-height: 50px;
+width: 30px;
+height: 30px;
 border-radius: 50%;
 `;
 
@@ -65,7 +72,10 @@ export const LoginText = styled.p`
   padding: 0 18px;
   transition: all 0.3s;
   color: white;
-  font-size: 2em;
+  font-size: 20px;
+  
+  &>*{color: white;
+    text-decoration:none ;}
   &:hover {
     font-weight: bolder;
     color: white;
@@ -79,9 +89,15 @@ height: 10px;
 `;
 
 export const Section = styled.section`
-background-color: aquamarine;
+/* background-color: aquamarine; */
 border: 1px solid #000;
+justify-content:center ;
+display:flex ;
+align-content:center ;
+display: flex ;
+align-items: center;
 width: 100%;
-  height: 100vh;
 
+&#TOURS {background-color: white;
+  height:100vh}
 `;
