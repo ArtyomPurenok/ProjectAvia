@@ -13,16 +13,11 @@ import {
 import { Navigatebar } from "./Navigatebar/Navigatebar";
 import { Link } from "react-router-dom";
 import { useAuth } from "./hooks/useAuth";
-import { SearchBox } from "../../HomePage/SearchBox";
-import { TicketCard } from "../../HomePage/TicketCard";
-import { PopularDestinationGrid } from "../../../components/PopularDestinationGrid/PopularDestinationGrid";
+// import { PopularDestinationGrid } from "../../../components/PopularDestinationGrid/PopularDestinationGrid";
 
 export const Header = () => {
-  const [ticketData, setticketData]: any = useState('');
   const [navBarActiveColor, setNavBarActiveColor] = useState(false);
-  const renderTicket = (ticket: any) => {
-    setticketData(ticket);
-  };
+
   const { email } = useAuth();
   window.addEventListener('scroll', () => window.scrollY > 30 ? setNavBarActiveColor(true) : setNavBarActiveColor(false));
   return (
@@ -41,16 +36,15 @@ export const Header = () => {
             }
           </WrapperUserTools>
         </NavBar>
-        <SearchBox renderTicket={renderTicket} />
-        {ticketData && ticketData?.data.map((ticket: any, index: any) => (<TicketCard key={index} currency={ticketData.currency} ticket={ticket} />))}
+
       </HeaderContainer>
 
 
-      <Section id="TOURS"><PopularDestinationGrid></PopularDestinationGrid></Section>
-      <Section id="HOUSING">
+      {/* <Section id="TOURS"><PopularDestinationGrid></PopularDestinationGrid></Section> */}
+      {/* <Section id="HOUSING">
       </Section>
       <Section id="AIR TISCRT">AIR TISCRT</Section>
-      <Section id="CAR RENTAL">CAR RENTAL</Section>
+      <Section id="CAR RENTAL">CAR RENTAL</Section> */}
     </>
   );
 };

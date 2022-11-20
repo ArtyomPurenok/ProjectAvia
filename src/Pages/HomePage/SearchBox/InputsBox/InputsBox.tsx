@@ -5,7 +5,7 @@ import './InputsBox.scss';
 import { Input } from "../../../../components/Input";
 import { Button } from "../../../../components/Button";
 import { RecommendedCountries } from "./RecommendedCountries";
-import { inputFromIATA, inputFromLocation, inputToIATA, inputToLocation, reverse } from "../../../../redux/reducer/dataSearchAviaTicketReducer";
+import { inputFromIATA, inputFromLocation, inputToIATA, inputToLocation, reverse, arrAviaTickets } from "../../../../redux/reducer/dataSearchAviaTicketReducer";
 import { useFetchTicket } from "./hooks/useFetchTicket";
 
 import { TbCurrentLocation } from "react-icons/tb";
@@ -117,7 +117,8 @@ export const InputsBox = () => {
 
 
     const getTicket = () => {      
-        fetchTicket(dataForSearchReducer);
+        dispatch(arrAviaTickets(fetchTicket(dataForSearchReducer)));
+        
     };
 
 
@@ -141,25 +142,5 @@ export const InputsBox = () => {
             <Calendar range={true} />
 
             <Button text='SEARCH' className="inputs-box_button" onClick={getTicket}/>
-            {/* <div className="btn">SEARCH</div> */}
-
-        {/* <div className="inputs-box_inputs">
-
-            <div className="inputs-box_input-div-left">
-                <TbCurrentLocation className="inputs-box_input-div-left--img" />
-                <Input refInput={refInputFrom} onClick={selectTextInputFrom} onChange={findCountryFrom} className="inputs-box_input-div-left--input" defaultValue={null} placeholder="Откуда" />
-                {inputFrom && <RecommendedCountries reducersObject={objValueInputFrom} text={textForSeach} onClick={closeInputFrom} />}
-            </div>
-            <Button onClick={setReverse} className='inputs-box_inputs--button' Icon={RiArrowLeftRightFill} />
-            <div className="inputs-box_input-div-right">
-                <IoLocationOutline className="inputs-box_input-div-right--img" />
-                <Input refInput={refInputTo} onClick={selectTextInputTo} onChange={findCountryTo} className="inputs-box_input-div-right--input" defaultValue={null} placeholder="Куда" />
-                {inputTo && <RecommendedCountries reducersObject={objValueInputTo} text={textForSeach} onClick={closeInputTo} />}
-            </div>
-        </div>
-        <div>
-
-            <Calendar range={true} />
-        </div> */}
     </div>;
 };

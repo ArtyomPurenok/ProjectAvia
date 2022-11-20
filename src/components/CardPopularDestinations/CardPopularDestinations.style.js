@@ -8,13 +8,13 @@ position: relative;
 `;
 
 export const Image = styled.img`
-display:block ;
+transition: 0.2s;
 width: 100%;
 height: 100%;
-border-radius: 15px;
 object-fit: cover;
 
-&:hover{transform: scale(1.1)}
+&:hover{transform: scale(1.04, 1.04)}
+
 `;
 
 
@@ -30,11 +30,11 @@ width: 157px;
 height: 37px;
 `;
 
-export const CountryName = styled.p`
+export const CountryName = styled.div`
     
-    display: flex;
-    padding: 0px;
-    position: absolute;
+display: flex;
+  padding: 0px;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

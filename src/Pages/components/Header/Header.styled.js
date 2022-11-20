@@ -12,15 +12,16 @@ display: flex;
 justify-content: space-evenly;
 align-items: center;
 width: 100%;
-height: 50px;
+height: 60px;
 margin: 0 auto;
 position:fixed ;
-background-color: transparent;
-transition :background-color 1500ms;
+background-color: rgb(0, 0, 0, 0.1);
+border: 1px solid rgb(0, 0, 0, 0.2);
+transition :background-color 500ms;
 z-index:100;
 &.active{
-  transition :background-color 1500ms;
-  background-color:red}
+  transition :background-color 500ms;
+  background-color: rgb(67, 74, 84)}
   `;
 
 export const Logo = styled.img`
@@ -89,12 +90,10 @@ height: 10px;
 `;
 
 export const Section = styled.section`
-/* background-color: aquamarine; */
 border: 1px solid #000;
 justify-content:center ;
 display:flex ;
 align-content:center ;
-display: flex ;
 align-items: center;
 width: 100%;
 

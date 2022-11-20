@@ -14,7 +14,7 @@ const initialState: any = {
     calendarFinish: null,
     inputRandomWaysIATA: null,
     inputRandomWaysLocation: null,
-    arrTicket: null,
+    arrAviaTickets: null,
 };
 
 
@@ -82,7 +82,7 @@ const dataTicketAvia: any = createSlice({
         inputRandomWaysLocation: (state: any, action: PayloadAction<string>) => {
             state.inputRandomWaysLocation = action.payload;
         },
-        arrTicket: (state: any, action: PayloadAction<string>) => {
+        arrAviaTickets: (state: any, action: PayloadAction<string>) => {
             state.arrTicket = action.payload;
         },
     },
@@ -90,5 +90,5 @@ const dataTicketAvia: any = createSlice({
 });
 
 
-export const { direction, flightClass, adults, children, infants, inputFromIATA, inputFromLocation, inputToIATA, inputToLocation, calendarStart, calendarFinish, reverse, inputRandomWaysIATA, inputRandomWaysLocation, arrTicket } = dataTicketAvia.actions;
+export const { direction, flightClass, adults, children, infants, inputFromIATA, inputFromLocation, inputToIATA, inputToLocation, calendarStart, calendarFinish, reverse, inputRandomWaysIATA, inputRandomWaysLocation, arrAviaTickets } = dataTicketAvia.actions;
 export default dataTicketAvia.reducer;
