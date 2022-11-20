@@ -45,6 +45,7 @@ export const Header = () => {
         {ticketData && ticketData?.data.map((ticket: any, index: any) => (<TicketCard key={index} currency={ticketData.currency} ticket={ticket} />))}
       </HeaderContainer>
 
+
       <Section id="TOURS"><PopularDestinationGrid></PopularDestinationGrid></Section>
       <Section id="HOUSING">
       </Section>

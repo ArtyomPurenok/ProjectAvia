@@ -12,6 +12,9 @@ const initialState: any = {
     inputToLocation: null,
     calendarStart: null,
     calendarFinish: null,
+    inputRandomWaysIATA: null,
+    inputRandomWaysLocation: null,
+    arrTicket: null,
 };
 
 
@@ -29,41 +32,14 @@ const dataTicketAvia: any = createSlice({
 
         adults: (state: any, action: PayloadAction<number>) => {
             state.adults = action.payload;
-            // if (action.payload === "plus") {
-            //     state.adults++;
-            // } else if (action.payload === "minus") {
-            //     state.adults--;
-            // }
-
-            // if (state.adults < 0) {
-            //     state.adults = 0;
-            // }
         },
 
         children: (state: any, action: PayloadAction<number>) => {
             state.children = action.payload;
-            // if (action.payload === "plus") {
-            //     state.children++;
-            // } else if (action.payload === "minus") {
-            //     state.children--;
-            // }
-
-            // if (state.children < 0) {
-            //     state.children = 0;
-            // }
         },
 
         infants: (state: any, action: PayloadAction<string>) => {
             state.infants = action.payload;
-            // if (action.payload === "plus") {
-            //     state.infants++;
-            // } else if (action.payload === "minus") {
-            //     state.infants--;
-            // }
-
-            // if (state.infants < 0) {
-            //     state.infants = 0;
-            // }
         },
 
         inputFromIATA: (state: any, action: PayloadAction<string>) => {
@@ -100,10 +76,19 @@ const dataTicketAvia: any = createSlice({
             state.inputToIATA = temporaryObject.newInputToIATA;
             state.inputToLocation = temporaryObject.newInputToLocation;
         },
+        inputRandomWaysIATA: (state: any, action: PayloadAction<string>) => {
+            state.inputRandomWaysIATA = action.payload;
+        },
+        inputRandomWaysLocation: (state: any, action: PayloadAction<string>) => {
+            state.inputRandomWaysLocation = action.payload;
+        },
+        arrTicket: (state: any, action: PayloadAction<string>) => {
+            state.arrTicket = action.payload;
+        },
     },
 
 });
 
 
-export const { direction, flightClass, adults, children, infants, inputFromIATA, inputFromLocation, inputToIATA, inputToLocation, calendarStart, calendarFinish, reverse } = dataTicketAvia.actions;
+export const { direction, flightClass, adults, children, infants, inputFromIATA, inputFromLocation, inputToIATA, inputToLocation, calendarStart, calendarFinish, reverse, inputRandomWaysIATA, inputRandomWaysLocation, arrTicket } = dataTicketAvia.actions;
 export default dataTicketAvia.reducer;

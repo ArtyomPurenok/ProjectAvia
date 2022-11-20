@@ -49,8 +49,9 @@ export const PassengerSelection = ({test}: any) => {
         <PassengerTypeCard namePassenger="Младенцы" numberPassenger={dataTicketSearch.infants} callBackNumber={setNewNumberInfants} />
 
         <div className="passenger-selection_buttons-box">
-            <Button onClick={test} text="Отмена" className="passenger-selection_button" />
             <Button onClick={dispatchNewNUmbers} text="Готово" className="passenger-selection_button" />
+            <Button onClick={test} text="Отмена" className="passenger-selection_button" />
+
 
         </div>
     </div>;

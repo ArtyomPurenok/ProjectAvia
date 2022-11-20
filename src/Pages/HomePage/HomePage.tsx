@@ -10,7 +10,7 @@ export const HomePage = () => {
         <div className="home-page_center">
             <Header />
             <Button className="buttonRandomWay" text='Random Ways' onClick={() => setModalActive(!modalacvive)} />
-            <ModalTicket acvive={modalacvive} setActive={setModalActive} />
+            {modalacvive && <ModalTicket active={modalacvive} setActive={setModalActive} />}
         </div>
         {/* <Slidder /> */}
 
