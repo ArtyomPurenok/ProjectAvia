@@ -7,14 +7,13 @@ import { PassengerSelection } from "./components/PassengerSelection";
 
 import { RiArrowLeftRightFill } from "react-icons/ri";
 import { HiOutlineUser } from "react-icons/hi";
-import { MdOutlineArrowDropDown } from "react-icons/md";
 
 import { useChoosingDirection } from "./hooks/useChoosingDirection";
 import { useCountingPassengers } from "./hooks/useCountingPassengers";
 import { direction, flightClass } from "../../../../redux/reducer/dataSearchAviaTicketReducer";
 
 
-export const FiltersBox = () => {
+export const FiltersBox = ({openFilter}: any) => {
     const dispatch = useDispatch();
     const dataPassenger = useSelector((state: any) => state.dataTicketSearch);
     const hookImgDirection = useChoosingDirection;
@@ -38,12 +37,13 @@ export const FiltersBox = () => {
 
 
 
-    return <div className="filters-box">
+
+    
+
+    return <div className={`filters-box ${openFilter}`}>
         
         <div className="filters-box_select-div">
             {imgDirection}
-
-            <div className="filters-box_select-arrow"></div>
 
             <select className="filters-box_select-directions" disabled onChange={choosingDirection}>
                 <option value="round">Туда и обратно</option>
@@ -56,7 +56,6 @@ export const FiltersBox = () => {
         <div className="filters-box_number-passengers">
             <div className="filters-box_number-passengers--user"><HiOutlineUser /></div>
             <Button className="filters-box_number-passengers--button" text={`${countingPassengers(dataPassenger)}`} onClick={OpenSelection} />
-            <div className="filters-box_number-passengers--arrow"><MdOutlineArrowDropDown /></div>
             {active && <PassengerSelection test={OpenSelection}/>}
             {active && <div className="filters-box_number-passengers--background" onClick={OpenSelection}></div>}
         </div>
@@ -64,7 +63,6 @@ export const FiltersBox = () => {
 
 
         <div className="filters-box_select-div">
-
             <div className="filters-box_select-arrow"></div>
 
             <select className="filters-box_select-directions" onChange={(el: any) => dispatch(flightClass(el.target.value))}>
@@ -74,5 +72,7 @@ export const FiltersBox = () => {
                 <option value='F'>first class</option>
             </select>
         </div>
+
+
     </div>;
 };

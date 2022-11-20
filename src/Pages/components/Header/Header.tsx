@@ -10,6 +10,7 @@ import {
   WrapperUserTools,
   LoginText,
   Avatar,
+  Section,
 } from "./Header.styled";
 import { BurgerMenu } from "./BurgerMenu/BurgerMenu";
 import { Navigatebar } from "./Navigatebar/Navigatebar";
@@ -59,8 +60,8 @@ export const Header = () => {
         <Navigatebar />
 
       </HeaderContainer>
-{/* 
-      <Section id="TOURS">TOURS</Section>
+
+      {/* <Section id="TOURS">TOURS</Section>
       <Section id="HOUSING">HOUSING</Section>
       <Section id="AIR TISCRT">AIR TISCRT</Section>
       <Section id="CAR RENTAL">CAR RENTAL</Section> */}

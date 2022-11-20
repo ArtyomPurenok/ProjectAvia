@@ -7,11 +7,12 @@ import { GiControlTower } from "react-icons/gi";
 
 type Props = {
     text?: string
+    className?: string
     onClick?: any
     reducersObject?: any
 }
 
-export const RecommendedCountries = ({text, onClick, reducersObject}: Props) => {
+export const RecommendedCountries = ({text, onClick, reducersObject, className}: Props) => {
     const dispatch = useDispatch();
     
     const [arrRecommended, setArrRecommended] = useState([]);
@@ -41,7 +42,7 @@ export const RecommendedCountries = ({text, onClick, reducersObject}: Props) => 
 
 
 
-    return <div className="recommended-countries" onClick={onClick}>
+    return <div className={`recommended-countries recommended-countries_${className}`} onClick={onClick}>
 
         {arrRecommended?.map((el: any) => {
             if (el.type === "city") {

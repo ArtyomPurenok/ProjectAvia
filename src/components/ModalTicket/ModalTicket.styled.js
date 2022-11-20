@@ -26,7 +26,7 @@ background-color: white;
 `;
 export const Border = styled.div`
   margin-top:5vh ;
-  width: 75%;
+  width: 650px;
   height: 10vh ;
   padding: 20px 20px;
   border: 0px solid grey;
@@ -34,9 +34,9 @@ export const Border = styled.div`
   text-align: center;
   box-shadow: 0 0 10px rgb(1, 1, 0.5);
   background-color: rgba(0, 0, 0, 0.07);
-  justify-content:space-between ;
-  align-items:center ;
   display:flex ;
+  align-items:center ;
+  justify-content:space-between ; 
 
 
   & >.buttonWontToGo {

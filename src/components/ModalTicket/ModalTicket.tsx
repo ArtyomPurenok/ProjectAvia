@@ -20,7 +20,6 @@ export const ModalTicket = ({ active, setActive }: any) => {
     const [ticket, setTicket]: any = useState();
 
     const getTicket = async () => {
-        // console.log(calendarStart + '----->' + calendarFinish);
         
         const url = `https://api.tequila.kiwi.com/v2/search?fly_from=${dataForSeach.inputRandomWaysIATA}&&dateFrom=${dataForSeach.calendarStart}&dateTo=${dataForSeach.calendarStart}`;
         const options = {
@@ -32,7 +31,6 @@ export const ModalTicket = ({ active, setActive }: any) => {
         const response = await fetch(url, options);
         const responseFormat = await (response).json();
         setTicket(responseFormat);
-        // ticket.data.map((oneTicket: any, index: any) => { return console.log(oneTicket); });
     };
 
 
@@ -73,9 +71,10 @@ export const ModalTicket = ({ active, setActive }: any) => {
         <Wrapper onClick={() => setActive(!active)}>
             <Container onClick={e => e.stopPropagation()}>
                 <Border>
-                    <Input className='modal-ticket_input' refInput={refInput} onChange={findCountry} defaultValue={null}  placeholder='Введите страну'/>
-                    {input && <RecommendedCountries reducersObject={objValueInput} text={textForSeach} onClick={closeInput}/>}
-                    {/* {<InputIATA placeholder='Enter country' onChange={getData} value={valueInputIATA} />} */}
+                    {/* <div className='asd'>
+                        <Input className='modal-ticket_input' refInput={refInput} onChange={findCountry} defaultValue={null}  placeholder='Введите страну'/>
+                        {input && <RecommendedCountries className='modal-ticket' reducersObject={objValueInput} text={textForSeach} onClick={closeInput}/>}
+                    </div> */}
                     <Calendar range={false} />
                     <Button onClick={getTicket} className='buttonWontToGo' text='Хочу улететь' />
                 </Border>

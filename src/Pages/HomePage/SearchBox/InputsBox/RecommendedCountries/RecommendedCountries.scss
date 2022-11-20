@@ -1,11 +1,12 @@
 .recommended-countries {
     position: absolute;
-    top: 60px;
-    left: 30px;
-    margin: 0;
+    // top: 60px;
+    // left: 30px;
+    margin: 340px 0 0 40px;
     border-radius: 3px;
     box-shadow: 0 0 5px rgba(0,0,0,1);
     background-color: rgb(221, 228, 230);
+    z-index: 3;
 
     
 
