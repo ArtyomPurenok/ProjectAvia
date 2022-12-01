@@ -15,8 +15,7 @@ width: 100%;
 height: 60px;
 margin: 0 auto;
 position:fixed ;
-background-color: rgb(0, 0, 0, 0.1);
-border: 1px solid rgb(0, 0, 0, 0.2);
+
 transition :background-color 500ms;
 z-index:100;
 &.active{

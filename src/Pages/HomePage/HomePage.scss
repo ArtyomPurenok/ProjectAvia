@@ -1,17 +1,55 @@
 .home-page {
 
-    &_center {
+    &_background-img {
         width: 100%;
         height: 110vh;
-        background: url("../components/Header/img/beach.jpg")  0 0/100% auto no-repeat;
+        position: static;
+        display: inline-block;
+        overflow: hidden;
+
+        & img {
+            width: 100%;
+            height: 100%;
+            // top: 0;
+            display: block;
+            transform: scale(1.15);
+        }
+
+        &-active {
+            & img {
+                transition: all 12000ms ease-in-out;
+                transform: scale(1);
+            }
+        }
+    }
+
+    &_center {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        // background: url("../components/Header/img/test.jpg")  0 0/100% auto no-repeat;
     }
 
     &_popular-destination {
         padding: 50px 0;
         border: none;
         display:flex ;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
+
+        & h1 {
+            margin-bottom: 10px;
+        }
+
+        & hr {
+            width: 100px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            border-color: transparent;
+            background-color: rgb(163, 163, 163);
+        }
         
     }
 }
@@ -29,25 +67,4 @@
     border-radius: 3px;
     background-color: rgb(255, 0, 55);
     box-shadow: 0 0 9px rgb(0 0 0);
-}
-
-
-
-.testImage {
-    // width: 200px;
-    // height: 200px;
-    // border: 1px solid black;
-    // margin-left: 600px;
-    display: inline-block;
-    overflow: hidden;
-
-    & img {
-        transition: 1s;
-        display: block;
-
-        &:hover {
-            transform: scale(1.2);
-        }
-    }
-
 }
